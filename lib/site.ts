@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Blinds, Armchair, Sofa, Sailboat } from "lucide-react";
+import { Blinds, Armchair, Sofa, Sailboat, Handshake } from "lucide-react";
 import { IMAGES } from "@/lib/images";
 
 export const NAV_LINKS = [
@@ -56,6 +56,15 @@ export const SERVICES: Service[] = [
     description:
       "Bekleding voor boten, jachten, horeca en bedrijfsruimten. Waterdicht, uv-bestendig en duurzaam — gemaakt voor de elementen.",
     image: IMAGES.boatInterior,
+  },
+  {
+    icon: Handshake,
+    title: "Zakelijke partners",
+    href: "/zakelijke-partners",
+    blurb: "Van interieurarchitect tot horeca — maatwerk in stof, betrouwbaar geleverd.",
+    description:
+      "Vaste partner voor het maatwerk in stof: gordijnen, bekleding en kussens voor interieurarchitecten, aannemers, werven en horeca. Korte lijnen, eerlijk advies, op tijd opgeleverd.",
+    image: IMAGES.interiorStudio,
   },
 ];
 

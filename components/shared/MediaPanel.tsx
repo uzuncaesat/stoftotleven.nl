@@ -14,12 +14,15 @@ const SWATCHES: Record<string, Swatch> = {
 export type SwatchName = keyof typeof SWATCHES;
 
 /**
- * Framed media block. With `src` it renders an optimised photograph behind a
- * subtle editorial overlay; without `src` it falls back to a styled fabric-
- * swatch placeholder. Used everywhere a photo lives (or will live).
+ * Framed media block. With `video` it renders a muted, looping background clip;
+ * with `src` it renders an optimised photograph behind a subtle editorial
+ * overlay; without either it falls back to a styled fabric-swatch placeholder.
+ * Used everywhere a photo (or clip) lives — or will live.
  */
 export default function MediaPanel({
   src,
+  video,
+  poster,
   alt,
   label = "Beeld volgt",
   caption,
@@ -32,6 +35,8 @@ export default function MediaPanel({
   children,
 }: {
   src?: string;
+  video?: string;
+  poster?: string;
   alt?: string;
   label?: string;
   caption?: ReactNode;
@@ -46,6 +51,40 @@ export default function MediaPanel({
   const s = SWATCHES[swatch] ?? SWATCHES.straw;
   const dark =
     swatch === "charcoal" || swatch === "ink" || swatch === "terracotta" || swatch === "sage";
+
+  if (video) {
+    return (
+      <div
+        className={`group/media relative ${ratio} w-full overflow-hidden rounded-[1.75rem] ${className}`}
+        style={{ background: `linear-gradient(135deg, ${s.from}, ${s.to})` }}
+      >
+        <video
+          src={video}
+          poster={poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out-expo group-hover/media:scale-[1.04]"
+        />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/10 to-transparent" />
+        <div aria-hidden className="weave-texture absolute inset-0 opacity-15 mix-blend-overlay" />
+        {framed && <div aria-hidden className="absolute inset-3 rounded-[1.35rem] border border-white/20" />}
+        {(caption || children) && (
+          <div className="absolute inset-0 flex items-end p-6 text-white/90">
+            {children ?? (
+              <span className="inline-flex items-center gap-2.5 text-[0.62rem] uppercase tracking-[0.24em]">
+                <span className="h-px w-6 bg-current" />
+                {caption}
+              </span>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   if (src) {
     return (

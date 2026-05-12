@@ -46,7 +46,7 @@ export default function HeroSection() {
         ))}
       </svg>
 
-      <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pt-28 sm:px-8 lg:px-12">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pt-24 sm:px-8 sm:pt-28 lg:px-12">
         <motion.div style={{ y: yText, opacity }}>
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export default function HeroSection() {
             Ambachtelijk maatwerk · sinds 20+ jaar op de Kleiweg
           </motion.span>
 
-          <h1 className="mt-6 font-display text-[clamp(3.4rem,12vw,11rem)] leading-[0.92] text-charcoal">
+          <h1 className="mt-5 font-display text-[clamp(2.8rem,11vw,11rem)] leading-[0.92] text-charcoal sm:mt-6">
             {WORDS.map((w, i) => (
               <span key={w} className="block overflow-hidden">
                 <motion.span
@@ -76,14 +76,14 @@ export default function HeroSection() {
             ))}
           </h1>
 
-          <div className="mt-6 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.05, duration: 0.7 }}
               className="max-w-md text-[1.05rem] leading-relaxed text-taupe"
             >
-              <span className="font-script text-3xl text-charcoal">by Hatish</span>
+              <span className="font-script text-[1.7rem] text-charcoal sm:text-3xl">by Hatish</span>
               <br />
               Van gordijn tot fauteuil, van sierkussen tot bootbekleding — jouw wensen
               vertaald naar iets tastbaars, iets moois, iets echts.
@@ -119,7 +119,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 0.8 }}
-        className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-6 pb-8 text-[0.65rem] uppercase tracking-[0.3em] text-taupe sm:px-8 lg:px-12"
+        className="relative mx-auto flex w-full max-w-7xl items-center justify-center px-6 pb-8 text-[0.65rem] uppercase tracking-[0.3em] text-taupe sm:justify-between sm:px-8 lg:px-12"
       >
         <span className="hidden sm:block">Rotterdam · Kleiweg 124A</span>
         <span className="flex items-center gap-3">

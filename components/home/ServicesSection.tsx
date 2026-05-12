@@ -16,7 +16,7 @@ export default function ServicesSection() {
             eyebrow="Onze diensten"
             title={
               <>
-                Vier ambachten,
+                Vijf vakgebieden,
                 <br className="hidden sm:block" /> één <span className="italic text-terracotta">vakvrouw</span>.
               </>
             }
@@ -30,7 +30,7 @@ export default function ServicesSection() {
             className="max-w-sm text-[0.95rem] leading-relaxed text-taupe"
           >
             Elk project begint met een gesprek aan tafel en eindigt met iets dat past — bij je
-            ruimte, je smaak en je manier van leven. Kies een ambacht om verder te kijken.
+            ruimte, je smaak en je manier van leven. Kies een vakgebied om verder te kijken.
           </motion.p>
         </div>
 
@@ -39,7 +39,7 @@ export default function ServicesSection() {
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } } }}
-          className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {SERVICES.map((service, i) => (
             <ServiceCard key={service.href} service={service} index={i} />

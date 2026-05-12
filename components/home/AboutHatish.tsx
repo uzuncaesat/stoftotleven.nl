@@ -23,12 +23,12 @@ export default function AboutHatish() {
           <div className="relative">
             <motion.div style={{ y: yImg }}>
               <MediaPanel
-                src={IMAGES.atelierPortrait}
+                video="/videos/hatish-atelier.mp4"
+                poster={IMAGES.atelierPortrait}
                 alt="Hatish aan het werk in haar atelier op de Kleiweg"
                 swatch="terracotta"
-                ratio="aspect-[4/5]"
+                ratio="aspect-[4/3] sm:aspect-[4/5]"
                 caption="In het atelier — Kleiweg, Rotterdam"
-                sizes="(max-width: 1024px) 100vw, 40vw"
                 className="shadow-[0_40px_80px_-40px_rgba(43,41,37,0.45)]"
               />
             </motion.div>
