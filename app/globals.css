@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Stof tot Leven — design tokens
+   Warm linen ground · charcoal ink · terracotta accent · straw
+   Colors stored as space-separated RGB channels for <alpha-value>
+   ============================================================ */
+:root {
+  --color-bg: 247 242 233;        /* #F7F2E9  warm linen */
+  --color-bg-deep: 240 232 218;   /* #F0E8DA  deeper cream panels */
+  --color-bg-dark: 38 35 31;      /* #26231F  near-black panels */
+  --color-ink: 28 26 23;          /* #1C1A17  near-black text */
+  --color-primary: 43 41 37;      /* #2B2925  charcoal */
+  --color-accent: 178 92 67;      /* #B25C43  warm terracotta */
+  --color-accent-soft: 200 137 122; /* #C8897A  dusty rose */
+  --color-secondary: 201 181 153; /* #C9B599  natural straw */
+  --color-muted: 132 122 106;     /* #847A6A  muted taupe */
+  --color-line: 222 211 192;      /* #DED3C0  hairline */
+}
+
+* {
+  border-color: rgb(var(--color-line));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-primary));
+  font-feature-settings: "ss01", "liga", "kern";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgb(var(--color-accent) / 0.85);
+  color: rgb(var(--color-bg));
+}
+
+/* Slim, warm scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-bg-deep));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-secondary));
+  border: 3px solid rgb(var(--color-bg-deep));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-muted));
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), "Cormorant Garamond", serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  /* Eyebrow / kicker label */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.28em] text-taupe;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-8 bg-terracotta/70;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(rgb(var(--color-accent)), rgb(var(--color-accent)));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Woven fabric texture — subtle diagonal weave */
+  .weave-texture {
+    background-image:
+      repeating-linear-gradient(45deg, rgb(var(--color-line) / 0.35) 0 1px, transparent 1px 7px),
+      repeating-linear-gradient(-45deg, rgb(var(--color-line) / 0.25) 0 1px, transparent 1px 7px);
+  }
+
+  .hairline {
+    @apply h-px w-full bg-line;
+  }
+}
+
+/* Film-grain overlay applied via a fixed pseudo layer in layout */
+.grain-layer {
+  position: fixed;
+  inset: -120%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 8s steps(5) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .grain-layer { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
