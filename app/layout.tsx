@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, Pinyon_Script } from "next/font/google";
+import { Halant, Roboto, Alex_Brush } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/layout/Preloader";
 
-const display = Cormorant_Garamond({
+const display = Halant({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const body = DM_Sans({
+const body = Roboto({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "700"],
   variable: "--font-body",
   display: "swap",
 });
 
-const script = Pinyon_Script({
+const script = Alex_Brush({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-script",

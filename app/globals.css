@@ -3,22 +3,23 @@
 @tailwind utilities;
 
 /* ============================================================
-   Stof tot Leven — brand tokens (extracted from logo.jpg)
-   Deep forest · warm cream · sage · soft terracotta accent
+   Stof tot Leven — design tokens (matched to stoftotleven.nl)
+   accent #2F4C48 (deep teal) · primary #91A2A1 (sage gray)
+   secondary #E9D9C3 (warm cream) · background #FFFFFF
    Colors stored as space-separated RGB channels for <alpha-value>
    ============================================================ */
 :root {
-  --color-bg: 245 239 225;          /* #F5EFE1  warm cream background */
-  --color-bg-deep: 235 226 207;     /* #EBE2CF  deeper cream panels */
-  --color-bg-dark: 32 56 47;        /* #20382F  deep forest (logo bg) */
-  --color-ink: 18 30 26;            /* #121E1A  near-black text */
-  --color-primary: 45 74 62;        /* #2D4A3E  forest green (brand) */
-  --color-forest-soft: 86 119 102;  /* #567766  softer sage-forest */
-  --color-accent: 168 182 158;      /* #A8B69E  sage (logo script) */
-  --color-accent-warm: 185 102 71;  /* #B96647  warm terracotta */
-  --color-secondary: 209 187 152;   /* #D1BB98  warm sand */
-  --color-muted: 110 105 90;        /* #6E695A  muted taupe */
-  --color-line: 219 207 184;        /* #DBCFB8  hairline */
+  --color-bg: 255 255 255;          /* #FFFFFF  page background */
+  --color-bg-deep: 233 217 195;     /* #E9D9C3  cream panels (secondary) */
+  --color-bg-dark: 47 76 72;        /* #2F4C48  deep teal (dark surfaces) */
+  --color-ink: 47 76 72;            /* #2F4C48  primary text */
+  --color-primary: 47 76 72;        /* #2F4C48  brand accent + body text */
+  --color-forest-soft: 75 109 104;  /* #4B6D68  hover state for teal */
+  --color-accent: 145 162 161;      /* #91A2A1  primary sage (UI accent) */
+  --color-accent-warm: 233 217 195; /* #E9D9C3  warm cream (legacy alias) */
+  --color-secondary: 233 217 195;   /* #E9D9C3  warm cream */
+  --color-muted: 116 130 129;       /* #748281  muted sage-gray */
+  --color-line: 222 222 218;        /* #DEDEDA  hairline */
 }
 
 * {
@@ -31,7 +32,7 @@ html {
 
 body {
   background-color: rgb(var(--color-bg));
-  color: rgb(var(--color-primary));
+  color: rgb(var(--color-ink));
   font-feature-settings: "ss01", "liga", "kern";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -49,7 +50,7 @@ body {
   unicode-bidi: isolate;
 }
 
-/* Slim, warm scrollbar */
+/* Slim scrollbar */
 ::-webkit-scrollbar {
   width: 11px;
 }
@@ -59,7 +60,7 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgb(var(--color-accent));
   border: 3px solid rgb(var(--color-bg-deep));
-  border-radius: 999px;
+  border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(var(--color-primary));
@@ -67,10 +68,15 @@ body {
 
 @layer base {
   h1, h2, h3, h4 {
-    font-family: var(--font-display), "Cormorant Garamond", serif;
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display), "Halant", Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.005em;
     color: rgb(var(--color-primary));
+  }
+
+  /* Flat / sharp visual language — borderRadius: 0px in spec */
+  button, input, select, textarea, a {
+    border-radius: 0;
   }
 }
 
@@ -78,6 +84,7 @@ body {
   /* Eyebrow / kicker label */
   .eyebrow {
     @apply inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.28em] text-forest/70;
+    font-family: var(--font-body), "Roboto", Helvetica, Arial, sans-serif;
   }
   .eyebrow::before {
     content: "";
@@ -106,7 +113,6 @@ body {
     @apply h-px w-full bg-line;
   }
 
-  /* Single-screen page container — fits within one viewport */
   .screen-page {
     min-height: 100svh;
     display: flex;
@@ -120,7 +126,7 @@ body {
   inset: -120%;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.03;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain-shift 8s steps(5) infinite;
