@@ -122,7 +122,12 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="relative" noValidate>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="notranslate relative"
+      translate="no"
+      noValidate
+    >
       <AnimatePresence>
         {sent && (
           <motion.div

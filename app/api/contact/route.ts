@@ -47,9 +47,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
-  if (!naam || !email || !onderwerp || !bericht) {
+  const missing: string[] = [];
+  if (!naam) missing.push("naam");
+  if (!email) missing.push("e-mail");
+  if (!onderwerp) missing.push("onderwerp");
+  if (!bericht) missing.push("bericht");
+  if (missing.length) {
     return NextResponse.json(
-      { ok: false, error: "Vul alle verplichte velden in." },
+      { ok: false, error: `Ontbrekende velden: ${missing.join(", ")}.` },
       { status: 400 },
     );
   }
@@ -58,7 +63,7 @@ export async function POST(req: NextRequest) {
   }
   if (bericht.length < 10) {
     return NextResponse.json(
-      { ok: false, error: "Bericht is te kort." },
+      { ok: false, error: "Bericht is te kort — schrijf wat meer." },
       { status: 400 },
     );
   }
