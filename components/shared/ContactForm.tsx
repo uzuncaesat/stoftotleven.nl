@@ -1,46 +1,77 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Loader2, Send } from "lucide-react";
-import { SUBJECT_OPTIONS, WEEKDAYS, DAYPARTS } from "@/lib/site";
+import { Check, Loader2, Paperclip, Send, X } from "lucide-react";
+import { SUBJECT_OPTIONS } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 
 type FormValues = {
   naam: string;
   email: string;
   onderwerp: string;
-  voorkeursdag: string;
-  dagdeel: string;
   bericht: string;
 };
 
 const fieldBase =
-  "peer w-full rounded-xl border border-line bg-linen/60 px-4 pt-6 pb-2 text-[0.95rem] text-charcoal outline-none transition-colors duration-300 placeholder-transparent focus:border-terracotta/60 focus:bg-linen";
+  "peer w-full rounded-xl border border-line bg-linen/60 px-4 pt-6 pb-2 text-[0.95rem] text-forest outline-none transition-colors duration-300 placeholder-transparent focus:border-forest/60 focus:bg-linen";
 const labelBase =
-  "pointer-events-none absolute left-4 top-2 text-[0.65rem] uppercase tracking-[0.18em] text-taupe transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-[0.85rem] peer-placeholder-shown:tracking-normal peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[0.65rem] peer-focus:uppercase peer-focus:tracking-[0.18em]";
+  "pointer-events-none absolute left-4 top-2 text-[0.65rem] uppercase tracking-[0.18em] text-forest/55 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-[0.85rem] peer-placeholder-shown:tracking-normal peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[0.65rem] peer-focus:uppercase peer-focus:tracking-[0.18em]";
 const selectBase =
-  "w-full appearance-none rounded-xl border border-line bg-linen/60 px-4 pt-6 pb-2 text-[0.95rem] text-charcoal outline-none transition-colors duration-300 focus:border-terracotta/60 focus:bg-linen";
-const selectLabel = "pointer-events-none absolute left-4 top-2 text-[0.65rem] uppercase tracking-[0.18em] text-taupe";
+  "w-full appearance-none rounded-xl border border-line bg-linen/60 px-4 pt-6 pb-2 text-[0.95rem] text-forest outline-none transition-colors duration-300 focus:border-forest/60 focus:bg-linen";
+const selectLabel =
+  "pointer-events-none absolute left-4 top-2 text-[0.65rem] uppercase tracking-[0.18em] text-forest/55";
 const errCls = "mt-1.5 block text-[0.72rem] text-terracotta";
+
+const MAX_FILE_MB = 10;
+const MAX_FILES = 5;
 
 export default function ContactForm({ compact = false }: { compact?: boolean }) {
   const [sent, setSent] = useState(false);
+  const [files, setFiles] = useState<File[]>([]);
+  const [fileError, setFileError] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    defaultValues: { onderwerp: "", voorkeursdag: "", dagdeel: "" },
+    defaultValues: { onderwerp: "" },
   });
+
+  function handleFiles(list: FileList | null) {
+    if (!list) return;
+    const next = [...files];
+    let err: string | null = null;
+    Array.from(list).forEach((f) => {
+      if (next.length >= MAX_FILES) {
+        err = `Maximaal ${MAX_FILES} bijlagen.`;
+        return;
+      }
+      if (f.size > MAX_FILE_MB * 1024 * 1024) {
+        err = `Bestanden tot ${MAX_FILE_MB} MB.`;
+        return;
+      }
+      next.push(f);
+    });
+    setFiles(next);
+    setFileError(err);
+    if (inputRef.current) inputRef.current.value = "";
+  }
+
+  function removeFile(i: number) {
+    setFiles(files.filter((_, idx) => idx !== i));
+  }
 
   async function onSubmit(_data: FormValues) {
     // Simulated submission — wire to an API route / email service in production.
     await new Promise((r) => setTimeout(r, 1100));
     setSent(true);
     reset();
+    setFiles([]);
     setTimeout(() => setSent(false), 6000);
   }
 
@@ -58,19 +89,28 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
               initial={{ scale: 0, rotate: -20 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 220, damping: 16 }}
-              className="flex h-16 w-16 items-center justify-center rounded-full bg-terracotta text-linen"
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-forest text-linen"
             >
               <Check className="h-7 w-7" />
             </motion.span>
-            <p className="mt-5 font-display text-2xl text-charcoal">Dank je wel — bericht verstuurd.</p>
-            <p className="mt-2 text-sm text-taupe">Ik neem zo snel mogelijk persoonlijk contact met je op.</p>
+            <p className="mt-5 font-display text-2xl text-forest">
+              Dank u wel — bericht verstuurd.
+            </p>
+            <p className="mt-2 text-sm text-taupe">
+              Ik neem zo snel mogelijk persoonlijk contact met u op.
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
 
       <div className={`grid gap-5 ${compact ? "sm:grid-cols-2" : "md:grid-cols-2"}`}>
         <div className="relative">
-          <input id="naam" placeholder="Naam" className={fieldBase} {...register("naam", { required: "Vul je naam in." })} />
+          <input
+            id="naam"
+            placeholder="Naam"
+            className={fieldBase}
+            {...register("naam", { required: "Vul uw naam in." })}
+          />
           <label htmlFor="naam" className={labelBase}>Naam</label>
           {errors.naam && <span className={errCls}>{errors.naam.message}</span>}
         </div>
@@ -81,7 +121,7 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
             placeholder="E-mail"
             className={fieldBase}
             {...register("email", {
-              required: "Vul je e-mailadres in.",
+              required: "Vul uw e-mailadres in.",
               pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Ongeldig e-mailadres." },
             })}
           />
@@ -89,39 +129,25 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
           {errors.email && <span className={errCls}>{errors.email.message}</span>}
         </div>
 
-        <div className="relative">
-          <select id="onderwerp" className={selectBase} {...register("onderwerp", { required: "Kies een onderwerp." })}>
+        <div className="relative md:col-span-2">
+          <select
+            id="onderwerp"
+            className={selectBase}
+            {...register("onderwerp", { required: "Kies een onderwerp." })}
+          >
             <option value="" disabled hidden></option>
             {SUBJECT_OPTIONS.map((o) => (
               <option key={o} value={o}>{o}</option>
             ))}
           </select>
           <label htmlFor="onderwerp" className={selectLabel}>Onderwerp</label>
-          <span aria-hidden className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-taupe">▾</span>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-forest/55"
+          >
+            ▾
+          </span>
           {errors.onderwerp && <span className={errCls}>{errors.onderwerp.message}</span>}
-        </div>
-
-        <div className="grid grid-cols-2 gap-5">
-          <div className="relative">
-            <select id="voorkeursdag" className={selectBase} {...register("voorkeursdag")}>
-              <option value="">Geen voorkeur</option>
-              {WEEKDAYS.map((d) => (
-                <option key={d} value={d}>{d}</option>
-              ))}
-            </select>
-            <label htmlFor="voorkeursdag" className={selectLabel}>Voorkeursdag</label>
-            <span aria-hidden className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-taupe">▾</span>
-          </div>
-          <div className="relative">
-            <select id="dagdeel" className={selectBase} {...register("dagdeel")}>
-              <option value="">Geen voorkeur</option>
-              {DAYPARTS.map((d) => (
-                <option key={d} value={d}>{d}</option>
-              ))}
-            </select>
-            <label htmlFor="dagdeel" className={selectLabel}>Dagdeel</label>
-            <span aria-hidden className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-taupe">▾</span>
-          </div>
         </div>
 
         <div className="relative md:col-span-2">
@@ -130,16 +156,75 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
             rows={compact ? 4 : 5}
             placeholder="Bericht"
             className={`${fieldBase} resize-none`}
-            {...register("bericht", { required: "Schrijf hier je bericht.", minLength: { value: 10, message: "Iets te kort — vertel wat meer." } })}
+            {...register("bericht", {
+              required: "Schrijf hier uw bericht.",
+              minLength: { value: 10, message: "Iets te kort — vertel wat meer." },
+            })}
           />
           <label htmlFor="bericht" className={labelBase}>Bericht</label>
           {errors.bericht && <span className={errCls}>{errors.bericht.message}</span>}
+        </div>
+
+        {/* File upload — replaces the previous voorkeursdag / dagdeel selectors */}
+        <div className="md:col-span-2">
+          <label
+            htmlFor="bijlagen"
+            className="group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-forest/30 bg-linen-deep/50 px-4 py-6 text-center transition-colors duration-300 hover:border-forest/60 hover:bg-linen-deep"
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-linen text-forest transition-colors duration-300 group-hover:bg-forest group-hover:text-linen">
+              <Paperclip className="h-5 w-5" />
+            </span>
+            <span className="text-[0.85rem] font-medium text-forest">
+              Voeg foto&apos;s of documenten toe
+            </span>
+            <span className="text-[0.72rem] text-taupe">
+              Stuur ons een foto van uw meubel, raam of project. PDF / JPG / PNG / DOCX — max {MAX_FILE_MB} MB per bestand, tot {MAX_FILES} bestanden.
+            </span>
+            <input
+              id="bijlagen"
+              ref={inputRef}
+              type="file"
+              multiple
+              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic,.webp"
+              className="sr-only"
+              onChange={(e) => handleFiles(e.target.files)}
+            />
+          </label>
+
+          {fileError && <span className={errCls}>{fileError}</span>}
+
+          {files.length > 0 && (
+            <ul className="mt-3 space-y-2">
+              {files.map((f, i) => (
+                <li
+                  key={`${f.name}-${i}`}
+                  className="flex items-center justify-between gap-3 rounded-lg border border-line bg-linen/70 px-3 py-2 text-[0.85rem] text-forest"
+                >
+                  <span className="flex items-center gap-2 truncate">
+                    <Paperclip className="h-3.5 w-3.5 shrink-0 text-forest/60" />
+                    <span className="truncate">{f.name}</span>
+                    <span className="shrink-0 text-[0.72rem] text-taupe">
+                      {(f.size / 1024 / 1024).toFixed(2)} MB
+                    </span>
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => removeFile(i)}
+                    aria-label={`${f.name} verwijderen`}
+                    className="rounded-full p-1 text-taupe transition-colors hover:bg-line/40 hover:text-forest"
+                  >
+                    <X className="h-3.5 w-3.5" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 
       <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[0.72rem] leading-relaxed text-taupe">
-          Je gegevens worden alleen gebruikt om jouw vraag te beantwoorden.
+          Uw gegevens worden alleen gebruikt om uw vraag te beantwoorden.
         </p>
         <Button type="submit" variant="solid" disabled={isSubmitting} className="shrink-0">
           {isSubmitting ? (

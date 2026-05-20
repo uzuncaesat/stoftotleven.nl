@@ -28,7 +28,7 @@ export default function Preloader() {
         >
           <div className="weave-texture absolute inset-0 opacity-30" />
           <div className="relative flex flex-col items-center">
-            <svg viewBox="0 0 120 60" className="h-16 w-32 text-terracotta" fill="none">
+            <svg viewBox="0 0 120 60" className="h-16 w-32 text-forest" fill="none">
               <motion.path
                 d="M6 50C26 18 44 42 60 30S94 6 114 14"
                 stroke="currentColor"
@@ -52,10 +52,11 @@ export default function Preloader() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="mt-4 flex flex-col items-center"
+              className="notranslate mt-4 flex flex-col items-center"
+              translate="no"
             >
-              <span className="font-display text-2xl tracking-tight text-charcoal">Stof tot Leven</span>
-              <span className="mt-1 text-[0.6rem] uppercase tracking-[0.4em] text-taupe">by Hatish</span>
+              <span className="font-display text-2xl tracking-tight text-forest">Stof tot Leven</span>
+              <span className="mt-1 text-[0.6rem] uppercase tracking-[0.4em] text-forest/60">by Hatish</span>
             </motion.div>
           </div>
         </motion.div>

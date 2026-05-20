@@ -13,8 +13,11 @@ const config: Config = {
         "linen-dark": "rgb(var(--color-bg-dark) / <alpha-value>)",
         ink: "rgb(var(--color-ink) / <alpha-value>)",
         charcoal: "rgb(var(--color-primary) / <alpha-value>)",
-        terracotta: "rgb(var(--color-accent) / <alpha-value>)",
-        "terracotta-soft": "rgb(var(--color-accent-soft) / <alpha-value>)",
+        forest: "rgb(var(--color-primary) / <alpha-value>)",
+        "forest-soft": "rgb(var(--color-forest-soft) / <alpha-value>)",
+        sage: "rgb(var(--color-accent) / <alpha-value>)",
+        terracotta: "rgb(var(--color-accent-warm) / <alpha-value>)",
+        "terracotta-soft": "rgb(var(--color-accent-warm) / <alpha-value>)",
         straw: "rgb(var(--color-secondary) / <alpha-value>)",
         taupe: "rgb(var(--color-muted) / <alpha-value>)",
         line: "rgb(var(--color-line) / <alpha-value>)",
@@ -29,7 +32,7 @@ const config: Config = {
         wide: "0.16em",
       },
       maxWidth: {
-        prose: "68ch",
+        prose: "62ch",
       },
       transitionTimingFunction: {
         "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",

@@ -3,21 +3,22 @@
 @tailwind utilities;
 
 /* ============================================================
-   Stof tot Leven — design tokens
-   Warm linen ground · charcoal ink · terracotta accent · straw
+   Stof tot Leven — brand tokens (extracted from logo.jpg)
+   Deep forest · warm cream · sage · soft terracotta accent
    Colors stored as space-separated RGB channels for <alpha-value>
    ============================================================ */
 :root {
-  --color-bg: 247 242 233;        /* #F7F2E9  warm linen */
-  --color-bg-deep: 240 232 218;   /* #F0E8DA  deeper cream panels */
-  --color-bg-dark: 38 35 31;      /* #26231F  near-black panels */
-  --color-ink: 28 26 23;          /* #1C1A17  near-black text */
-  --color-primary: 43 41 37;      /* #2B2925  charcoal */
-  --color-accent: 178 92 67;      /* #B25C43  warm terracotta */
-  --color-accent-soft: 200 137 122; /* #C8897A  dusty rose */
-  --color-secondary: 201 181 153; /* #C9B599  natural straw */
-  --color-muted: 132 122 106;     /* #847A6A  muted taupe */
-  --color-line: 222 211 192;      /* #DED3C0  hairline */
+  --color-bg: 245 239 225;          /* #F5EFE1  warm cream background */
+  --color-bg-deep: 235 226 207;     /* #EBE2CF  deeper cream panels */
+  --color-bg-dark: 32 56 47;        /* #20382F  deep forest (logo bg) */
+  --color-ink: 18 30 26;            /* #121E1A  near-black text */
+  --color-primary: 45 74 62;        /* #2D4A3E  forest green (brand) */
+  --color-forest-soft: 86 119 102;  /* #567766  softer sage-forest */
+  --color-accent: 168 182 158;      /* #A8B69E  sage (logo script) */
+  --color-accent-warm: 185 102 71;  /* #B96647  warm terracotta */
+  --color-secondary: 209 187 152;   /* #D1BB98  warm sand */
+  --color-muted: 110 105 90;        /* #6E695A  muted taupe */
+  --color-line: 219 207 184;        /* #DBCFB8  hairline */
 }
 
 * {
@@ -38,8 +39,14 @@ body {
 }
 
 ::selection {
-  background-color: rgb(var(--color-accent) / 0.85);
+  background-color: rgb(var(--color-primary) / 0.85);
   color: rgb(var(--color-bg));
+}
+
+/* Brand name protection: prevent Google Translate from rewriting it */
+.notranslate,
+[translate="no"] {
+  unicode-bidi: isolate;
 }
 
 /* Slim, warm scrollbar */
@@ -50,12 +57,12 @@ body {
   background: rgb(var(--color-bg-deep));
 }
 ::-webkit-scrollbar-thumb {
-  background: rgb(var(--color-secondary));
+  background: rgb(var(--color-accent));
   border: 3px solid rgb(var(--color-bg-deep));
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(var(--color-muted));
+  background: rgb(var(--color-primary));
 }
 
 @layer base {
@@ -63,21 +70,22 @@ body {
     font-family: var(--font-display), "Cormorant Garamond", serif;
     font-weight: 400;
     letter-spacing: -0.01em;
+    color: rgb(var(--color-primary));
   }
 }
 
 @layer components {
   /* Eyebrow / kicker label */
   .eyebrow {
-    @apply inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.28em] text-taupe;
+    @apply inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.28em] text-forest/70;
   }
   .eyebrow::before {
     content: "";
-    @apply h-px w-8 bg-terracotta/70;
+    @apply h-px w-8 bg-forest/70;
   }
 
   .link-underline {
-    background-image: linear-gradient(rgb(var(--color-accent)), rgb(var(--color-accent)));
+    background-image: linear-gradient(rgb(var(--color-primary)), rgb(var(--color-primary)));
     background-size: 0% 1px;
     background-position: 0 100%;
     background-repeat: no-repeat;
@@ -97,6 +105,13 @@ body {
   .hairline {
     @apply h-px w-full bg-line;
   }
+
+  /* Single-screen page container — fits within one viewport */
+  .screen-page {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* Film-grain overlay applied via a fixed pseudo layer in layout */
@@ -105,7 +120,7 @@ body {
   inset: -120%;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.04;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain-shift 8s steps(5) infinite;

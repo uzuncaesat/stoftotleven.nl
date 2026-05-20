@@ -1,45 +1,68 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type LogoProps = {
   className?: string;
   /** "ink" for dark text on light, "light" for light text on dark */
   tone?: "ink" | "light";
   withLink?: boolean;
+  size?: "sm" | "md" | "lg";
 };
 
 /**
- * Typographic mark for "Stof tot Leven — by Hatish".
- * A needle-and-thread glyph stitched through the wordmark.
+ * Brand mark for "Stof tot Leven — by Hatish".
+ * Uses the official logo.jpg so the wordmark stays a graphic and is
+ * protected from automatic translators (Google Translate, browsers).
+ * The `translate="no"` and `notranslate` class lock the brand name
+ * even when accessibility text is read by translation engines.
  */
-export default function Logo({ className = "", tone = "ink", withLink = true }: LogoProps) {
-  const text = tone === "light" ? "text-linen" : "text-charcoal";
-  const sub = tone === "light" ? "text-linen/55" : "text-taupe";
+export default function Logo({
+  className = "",
+  tone = "ink",
+  withLink = true,
+  size = "md",
+}: LogoProps) {
+  const dim = size === "sm" ? 40 : size === "lg" ? 64 : 52;
+  const box =
+    size === "sm" ? "h-10 w-10" : size === "lg" ? "h-16 w-16" : "h-[52px] w-[52px]";
+  const tint =
+    tone === "light"
+      ? "ring-1 ring-linen/20"
+      : "ring-1 ring-forest/15";
 
   const inner = (
-    <span className={`group inline-flex items-center gap-2.5 ${className}`}>
-      <svg
-        viewBox="0 0 40 40"
-        className="h-7 w-7 shrink-0 text-terracotta"
-        fill="none"
-        aria-hidden
+    <span
+      translate="no"
+      lang="nl"
+      className={`notranslate group inline-flex items-center gap-3 ${className}`}
+      aria-label="Stof tot Leven by Hatish — Hillegersberg"
+    >
+      <span
+        className={`relative ${box} shrink-0 overflow-hidden rounded-xl ${tint}`}
       >
-        <path
-          d="M6 30c6-2 9-9 14-14S30 6 34 8"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          strokeDasharray="0.5 4"
-          className="transition-[stroke-dasharray] duration-700 group-hover:[stroke-dasharray:2_4]"
+        <Image
+          src="/logo.jpg"
+          alt=""
+          width={dim * 2}
+          height={dim * 2}
+          priority
+          className="h-full w-full object-cover"
         />
-        <circle cx="34" cy="8" r="2.4" fill="currentColor" />
-        <path d="M5 31l2-1 .6 2.2z" fill="currentColor" />
-      </svg>
-      <span className="flex flex-col leading-none">
-        <span className={`font-display text-[1.35rem] tracking-tight ${text}`}>
+      </span>
+      <span className="flex flex-col leading-none" translate="no">
+        <span
+          className={`font-display text-[1.18rem] tracking-tight sm:text-[1.32rem] ${
+            tone === "light" ? "text-linen" : "text-forest"
+          }`}
+        >
           Stof tot Leven
         </span>
-        <span className={`mt-0.5 text-[0.6rem] uppercase tracking-[0.32em] ${sub}`}>
-          by Hatish
+        <span
+          className={`mt-1 text-[0.58rem] uppercase tracking-[0.36em] ${
+            tone === "light" ? "text-linen/60" : "text-forest/55"
+          }`}
+        >
+          by Hatish · Hillegersberg
         </span>
       </span>
     </span>
@@ -47,7 +70,11 @@ export default function Logo({ className = "", tone = "ink", withLink = true }: 
 
   if (!withLink) return inner;
   return (
-    <Link href="/" aria-label="Stof tot Leven — naar de homepage">
+    <Link
+      href="/"
+      aria-label="Stof tot Leven — naar de homepage"
+      className="-m-1 rounded-2xl p-1 transition-opacity hover:opacity-90"
+    >
       {inner}
     </Link>
   );

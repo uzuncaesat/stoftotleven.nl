@@ -6,7 +6,7 @@ export const NAV_LINKS = [
   { label: "Raamdecoratie", href: "/raamdecoratie" },
   { label: "Stofferen", href: "/stofferen" },
   { label: "Kussens op maat", href: "/kussens-op-maat" },
-  { label: "Maritieme bekleding", href: "/maritieme-bekleding" },
+  { label: "Maritieme bekleding op maat", href: "/maritieme-bekleding" },
   { label: "Zakelijke partners", href: "/zakelijke-partners" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -25,45 +25,45 @@ export const SERVICES: Service[] = [
     icon: Blinds,
     title: "Raamdecoratie",
     href: "/raamdecoratie",
-    blurb: "Van gordijnen tot inbetweens — sfeer en stijl in elke ruimte.",
+    blurb: "Rust, sfeer en functionaliteit bij het raam.",
     description:
-      "Gordijnen, vitrages, vouwgordijnen, inbetweens en rolluiken, gemaakt en gemonteerd met oog voor licht, val en verhouding.",
+      "Raamdecoratie op maat die rust, sfeer en functionaliteit samenbrengt. Wij begeleiden u van stofkeuze en inmeting tot afwerking en plaatsing.",
     image: IMAGES.curtainsCozy,
   },
   {
     icon: Armchair,
     title: "Stofferen",
     href: "/stofferen",
-    blurb: "Van fauteuil tot eetkamerstoel — oog voor detail en duurzaamheid.",
+    blurb: "Meubels die het waard zijn om te behouden.",
     description:
-      "Fauteuils, banken, eetkamerstoelen en voetenbankjes terug in topconditie. Ambachtelijk gestoffeerd, gemaakt om te blijven.",
+      "Stoffeerwerk op maat voor meubels die het waard zijn om te behouden. Zo krijgt een bestaand meubel opnieuw comfort, karakter en een uitstraling die past bij uw interieur.",
     image: IMAGES.armchairYellow,
   },
   {
     icon: Sofa,
     title: "Kussens op maat",
     href: "/kussens-op-maat",
-    blurb: "Sierkussens, zitkussens of buitenkussens — in jouw stijl.",
+    blurb: "Comfort en dagelijks gebruik, binnen én buiten.",
     description:
-      "Sierkussens, zitkussens, stoelkussens en buitenkussens. Jouw stof, jouw vulling, jouw maat — tot op de centimeter.",
+      "Kussens op maat voor binnen- en buitenruimtes, ontworpen voor comfort en dagelijks gebruik. Praktisch in vorm, sterk in afwerking en passend bij uw stijl.",
     image: IMAGES.cushionsSofa,
   },
   {
     icon: Sailboat,
-    title: "Maritieme bekleding",
+    title: "Maritieme bekleding op maat",
     href: "/maritieme-bekleding",
-    blurb: "Van boten tot horeca — unieke oplossingen op maat.",
+    blurb: "Van herstel tot vernieuwing aan boord.",
     description:
-      "Bekleding voor boten, jachten, horeca en bedrijfsruimten. Waterdicht, uv-bestendig en duurzaam — gemaakt voor de elementen.",
+      "Maatwerk voor bootinterieurs en maritieme kussens, van herstel tot vernieuwing. Ideaal voor wie een verzorgde, duurzame en functionele oplossing zoekt aan boord.",
     image: IMAGES.boatInterior,
   },
   {
     icon: Handshake,
     title: "Zakelijke partners",
     href: "/zakelijke-partners",
-    blurb: "Van interieurarchitect tot horeca — maatwerk in stof, betrouwbaar geleverd.",
+    blurb: "Een betrouwbare uitvoeringspartner — white-label.",
     description:
-      "Vaste partner voor het maatwerk in stof: gordijnen, bekleding en kussens voor interieurarchitecten, aannemers, werven en horeca. Korte lijnen, eerlijk advies, op tijd opgeleverd.",
+      "Voor architecten, interieurontwerpers, stylisten, aannemers en hospitality-ondernemers die een betrouwbare uitvoeringspartner zoeken achter de schermen.",
     image: IMAGES.interiorStudio,
   },
 ];
@@ -92,15 +92,3 @@ export const SUBJECT_OPTIONS = [
   "Compliment / Klacht",
   "Afspraak maken",
 ] as const;
-
-export const WEEKDAYS = [
-  "Maandag",
-  "Dinsdag",
-  "Woensdag",
-  "Donderdag",
-  "Vrijdag",
-  "Zaterdag",
-  "Zondag",
-] as const;
-
-export const DAYPARTS = ["Ochtend", "Middag", "Avond"] as const;
