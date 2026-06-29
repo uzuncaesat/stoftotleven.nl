@@ -15,9 +15,17 @@ export default function AboutHatish() {
 
   return (
     <section id="over-hatish" className="relative overflow-hidden bg-linen py-24 sm:py-28 md:py-36">
-      <div aria-hidden className="pointer-events-none absolute -right-40 top-1/4 h-96 w-96 rounded-full bg-sage/25 blur-3xl" />
+      <div aria-hidden className="pattern-grid pointer-events-none absolute inset-0 opacity-40" />
 
-      <div ref={ref} className="mx-auto grid w-full max-w-7xl gap-14 px-6 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20 lg:px-12">
+      <div className="relative mx-auto mb-14 flex w-full max-w-7xl items-center gap-4 px-6 sm:px-8 lg:px-12">
+        <span className="section-index">02</span>
+        <span className="stitch-soft h-px flex-1" />
+        <span className="text-[0.68rem] uppercase tracking-[0.26em] text-forest/55" translate="no">
+          Over <span className="notranslate">Hatish</span>
+        </span>
+      </div>
+
+      <div ref={ref} className="relative mx-auto grid w-full max-w-7xl gap-14 px-6 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20 lg:px-12">
         {/* image side */}
         <ScrollReveal direction="right">
           <div className="relative">
@@ -32,24 +40,19 @@ export default function AboutHatish() {
                 className="shadow-[0_40px_80px_-40px_rgba(45,74,62,0.45)]"
               />
             </motion.div>
-            <div aria-hidden className="absolute -bottom-7 -right-7 hidden rotate-[-4deg] rounded-2xl border border-line bg-linen px-6 py-5 shadow-lg sm:block">
+            <div aria-hidden className="absolute -bottom-7 -right-7 hidden rotate-[-3deg] border border-forest/20 bg-linen px-6 py-5 shadow-[0_24px_50px_-30px_rgba(45,74,62,0.5)] sm:block">
               <p className="font-script text-3xl text-forest" translate="no">
                 Liefs, <span className="notranslate">Hatish</span>
               </p>
             </div>
-            <div aria-hidden className="absolute -left-5 -top-5 h-20 w-20 rounded-2xl border border-line bg-linen-deep" />
+            <div aria-hidden className="tape-edge absolute -left-5 -top-5 h-20 w-20 border border-forest/20 bg-linen-deep" />
           </div>
         </ScrollReveal>
 
         {/* story side */}
         <div>
-          <ScrollReveal direction="left">
-            <span className="eyebrow" translate="no">
-              Over <span className="notranslate">Hatish</span>
-            </span>
-          </ScrollReveal>
           <ScrollReveal direction="left" delay={0.08}>
-            <h2 className="mt-5 font-display text-4xl leading-[1.1] text-forest sm:text-5xl md:text-[3.4rem]">
+            <h2 className="font-display text-4xl font-light leading-[1.08] text-forest sm:text-5xl md:text-[3.4rem]">
               Dochter van een kleermaker — opgegroeid tussen{" "}
               <span className="italic text-sage">naald, draad en verhalen</span>.
             </h2>
@@ -84,7 +87,7 @@ export default function AboutHatish() {
               </p>
             </ScrollReveal>
             <ScrollReveal direction="left" delay={0.26}>
-              <p className="border-l-2 border-sage/60 pl-5 font-display text-2xl italic leading-snug text-forest">
+              <p className="border-l-2 border-dashed border-sage pl-5 font-display text-2xl italic leading-snug text-forest">
                 &ldquo;Mijn werk is wensen vertalen naar iets tastbaars: eerlijke,
                 duurzame textiele oplossingen die een ruimte warm, comfortabel en
                 echt van uzelf laten voelen.&rdquo;

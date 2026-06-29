@@ -56,7 +56,7 @@ export default function ProcessSlider({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-[1.75rem] border ${
+      className={`relative overflow-hidden rounded-none border ${
         isDark ? "border-linen/10 bg-forest/40" : "border-line bg-linen-deep"
       }`}
     >
@@ -84,7 +84,7 @@ export default function ProcessSlider({
         </AnimatePresence>
 
         {/* Step badge — top-left */}
-        <div className="pointer-events-none absolute left-5 top-5 flex items-center gap-2 rounded-full bg-linen/95 px-3.5 py-1.5 text-[0.7rem] uppercase tracking-[0.18em] text-forest backdrop-blur sm:left-7 sm:top-7">
+        <div className="pointer-events-none absolute left-5 top-5 flex items-center gap-2 rounded-none bg-linen/95 px-3.5 py-1.5 text-[0.7rem] uppercase tracking-[0.18em] text-forest backdrop-blur sm:left-7 sm:top-7">
           <span className="font-display text-base leading-none text-forest">
             {current.step}
           </span>
@@ -124,7 +124,7 @@ export default function ProcessSlider({
               key={s.step}
               onClick={() => setActive(i)}
               aria-label={`Stap ${s.step} — ${s.title}`}
-              className={`group relative flex flex-1 min-w-[7rem] items-center gap-2 overflow-hidden rounded-full px-3 py-1.5 text-left text-[0.7rem] uppercase tracking-[0.14em] transition-colors duration-300 ${
+              className={`group relative flex flex-1 min-w-[7rem] items-center gap-2 overflow-hidden rounded-none px-3 py-1.5 text-left text-[0.7rem] uppercase tracking-[0.14em] transition-colors duration-300 ${
                 isActive
                   ? isDark
                     ? "bg-sage/90 text-forest"

@@ -53,10 +53,10 @@ export default function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`relative inline-flex items-center whitespace-nowrap rounded-full px-3 py-2 text-[0.72rem] font-medium uppercase tracking-[0.12em] transition-colors duration-300 xl:px-3.5 xl:text-[0.76rem] xl:tracking-[0.14em] ${
+                    className={`relative inline-flex items-center whitespace-nowrap rounded-none px-3 py-2 text-[0.72rem] font-medium uppercase tracking-[0.12em] transition-colors duration-300 xl:px-3.5 xl:text-[0.76rem] xl:tracking-[0.14em] ${
                       active
                         ? "text-forest"
-                        : "text-forest/65 hover:text-forest"
+                        : "text-forest/60 hover:text-forest"
                     }`}
                   >
                     <span translate="no" className="notranslate">
@@ -65,7 +65,7 @@ export default function Navbar() {
                     {active && (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute inset-x-3 -bottom-[3px] h-[2px] rounded-full bg-forest"
+                        className="stitch absolute inset-x-3 -bottom-[5px]"
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
@@ -78,15 +78,21 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden items-center gap-2 whitespace-nowrap rounded-full bg-forest px-4 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.14em] text-linen transition-colors duration-300 hover:bg-forest-soft xl:inline-flex"
+              className="group relative hidden items-center gap-2 overflow-hidden whitespace-nowrap rounded-none bg-forest px-5 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.16em] text-linen transition-colors duration-500 ease-out-expo hover:text-forest xl:inline-flex"
             >
-              <CalendarCheck className="h-3.5 w-3.5" />
-              Plan een afspraak
+              <span
+                aria-hidden
+                className="absolute inset-0 translate-y-full bg-sage transition-transform duration-500 ease-out-expo group-hover:translate-y-0"
+              />
+              <span className="relative z-10 flex items-center gap-2">
+                <CalendarCheck className="h-3.5 w-3.5" />
+                Plan een afspraak
+              </span>
             </Link>
             <button
               onClick={() => setOpen(true)}
               aria-label="Menu openen"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-forest/25 text-forest transition-colors duration-300 hover:border-forest hover:bg-forest hover:text-linen lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-none border border-forest/25 text-forest transition-colors duration-300 hover:border-forest hover:bg-forest hover:text-linen lg:hidden"
             >
               <Menu className="h-5 w-5" />
             </button>
@@ -117,7 +123,7 @@ export default function Navbar() {
                   <button
                     onClick={() => setOpen(false)}
                     aria-label="Menu sluiten"
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-linen/25 text-linen transition-colors hover:border-sage hover:text-sage"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-none border border-linen/25 text-linen transition-colors hover:border-sage hover:text-sage"
                   >
                     <X className="h-5 w-5" />
                   </button>
@@ -156,7 +162,7 @@ export default function Navbar() {
                 >
                   <Link
                     href="/contact"
-                    className="mb-4 inline-flex items-center gap-2 rounded-full bg-sage px-5 py-2.5 text-[0.72rem] font-medium uppercase tracking-[0.16em] text-linen-dark"
+                    className="mb-4 inline-flex items-center gap-2 rounded-none bg-sage px-5 py-2.5 text-[0.72rem] font-medium uppercase tracking-[0.16em] text-linen-dark"
                   >
                     <CalendarCheck className="h-3.5 w-3.5" />
                     Plan een afspraak

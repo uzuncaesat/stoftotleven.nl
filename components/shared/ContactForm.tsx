@@ -24,7 +24,9 @@ const selectBase =
   "w-full appearance-none border border-line bg-linen/60 px-4 pt-6 pb-2 text-[0.95rem] text-forest outline-none transition-colors duration-300 focus:border-forest/60 focus:bg-linen";
 const selectLabel =
   "pointer-events-none absolute left-4 top-2 text-[0.65rem] uppercase tracking-[0.18em] text-forest/55";
-const errCls = "mt-1.5 block text-[0.72rem] text-terracotta";
+// Warm clay/rust — a brand-harmonious alert tone (the cream "terracotta"
+// alias is invisible on light fields, so errors get this dedicated colour).
+const errCls = "mt-1.5 block text-[0.72rem] font-medium text-[#a8543b]";
 
 const MAX_FILE_MB = 4;
 const MAX_TOTAL_MB = 4;
@@ -284,8 +286,8 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
       </div>
 
       {submitError && (
-        <div className="mt-5 flex items-start gap-2 border border-terracotta/40 bg-terracotta/10 px-4 py-3 text-[0.85rem] text-forest">
-          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-terracotta" />
+        <div className="mt-5 flex items-start gap-2 border border-[#a8543b]/40 bg-[#a8543b]/10 px-4 py-3 text-[0.85rem] text-forest">
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#a8543b]" />
           <span>{submitError}</span>
         </div>
       )}

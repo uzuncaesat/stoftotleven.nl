@@ -47,9 +47,9 @@ export default function ScreenPage({
   return (
     <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-linen pt-24 sm:pt-28">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="weave-texture absolute inset-0 opacity-30" />
-        <div className="absolute -right-32 -top-20 h-[28rem] w-[28rem] rounded-full bg-sage/25 blur-[120px]" />
-        <div className="absolute -left-32 bottom-0 h-[22rem] w-[22rem] rounded-full bg-straw/30 blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-linen-deep/40 via-linen to-linen" />
+        <div className="weave-texture absolute inset-0 opacity-25" />
+        <div className="pattern-grid absolute inset-0 opacity-50" />
       </div>
 
       <div className="relative mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-10 px-6 py-8 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14 lg:px-12 lg:py-10">
@@ -91,7 +91,7 @@ export default function ScreenPage({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 font-display text-[clamp(2.4rem,5.4vw,4.4rem)] leading-[1.02] text-forest"
+            className="mt-4 font-display text-[clamp(2.4rem,5.4vw,4.4rem)] font-light leading-[1.02] text-forest"
           >
             <span translate="no" className="notranslate">
               {title}
@@ -128,8 +128,9 @@ export default function ScreenPage({
               {highlights.map((h) => (
                 <li
                   key={h}
-                  className="inline-flex items-center rounded-full border border-forest/15 bg-linen-deep/70 px-3.5 py-1.5 text-[0.72rem] uppercase tracking-[0.14em] text-forest/75"
+                  className="inline-flex items-center gap-2 rounded-none border border-forest/15 bg-linen-deep/70 px-3.5 py-1.5 text-[0.72rem] uppercase tracking-[0.14em] text-forest/75"
                 >
+                  <span aria-hidden className="h-1.5 w-1.5 bg-sage" />
                   {h}
                 </li>
               ))}
@@ -144,10 +145,13 @@ export default function ScreenPage({
           >
             <Link
               href={cta.href}
-              className="group inline-flex items-center gap-2.5 rounded-full bg-forest px-6 py-3 text-[0.78rem] font-medium uppercase tracking-[0.16em] text-linen transition-colors duration-300 hover:bg-forest-soft"
+              className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-none bg-forest px-6 py-3 text-[0.74rem] font-medium uppercase tracking-[0.18em] text-linen transition-colors duration-500 ease-out-expo hover:text-forest"
             >
-              {cta.label}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              <span aria-hidden className="absolute inset-0 translate-y-full bg-sage transition-transform duration-500 ease-out-expo group-hover:translate-y-0" />
+              <span className="relative z-10 flex items-center gap-2.5">
+                {cta.label}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
             </Link>
             {altCta && (
               <Link

@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Halant, Roboto, Alex_Brush } from "next/font/google";
+import { Fraunces, Hanken_Grotesk, Alex_Brush } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/layout/Preloader";
 
-const display = Halant({
+// Display — Fraunces: a characterful "old-style" craft serif with warmth
+// and personality (soft serifs, expressive italics). Fits a tailor's atelier.
+const display = Fraunces({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-const body = Roboto({
+// Body — Hanken Grotesk: a warm humanist grotesque, far more characterful
+// than Roboto while staying highly legible.
+const body = Hanken_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
   variable: "--font-body",
   display: "swap",
 });

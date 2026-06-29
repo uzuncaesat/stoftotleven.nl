@@ -154,8 +154,15 @@ export async function POST(req: NextRequest) {
 
     if (error) {
       console.error("Resend error:", error);
+      const detail =
+        (typeof error === "object" && error && "message" in error
+          ? String((error as { message?: unknown }).message)
+          : "") || "onbekende fout";
       return NextResponse.json(
-        { ok: false, error: "Mail kon niet verzonden worden." },
+        {
+          ok: false,
+          error: `Mail kon niet verzonden worden (${detail}).`,
+        },
         { status: 502 },
       );
     }

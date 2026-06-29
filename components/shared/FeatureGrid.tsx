@@ -24,9 +24,9 @@ export default function FeatureGrid({
         const Icon = f.icon;
         return (
           <StaggerItem key={f.title}>
-            <div className={`group h-full rounded-2xl border ${card} p-7 transition-[transform,border-color] duration-500 ease-out-expo hover:-translate-y-1 hover:border-terracotta/40`}>
+            <div className={`group h-full rounded-none border ${card} p-7 transition-[transform,border-color] duration-500 ease-out-expo hover:-translate-y-1 hover:border-sage/60`}>
               {Icon && (
-                <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-full border border-line bg-linen-deep text-terracotta">
+                <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-none border border-line bg-linen-deep text-forest">
                   <Icon className="h-5 w-5" strokeWidth={1.4} />
                 </span>
               )}

@@ -28,7 +28,8 @@ export default function PageHero({
   return (
     <header className="relative overflow-hidden bg-linen-deep pt-36 pb-20 sm:pt-44 sm:pb-28">
       <div aria-hidden className="weave-texture pointer-events-none absolute inset-0 opacity-40" />
-      <div aria-hidden className="pointer-events-none absolute -right-40 -top-24 h-96 w-96 rounded-full bg-terracotta/10 blur-3xl" />
+      <div aria-hidden className="pattern-grid pointer-events-none absolute inset-0 opacity-50" />
+      <div aria-hidden className="stitch-soft absolute inset-x-0 bottom-0 h-px" />
 
       <div className="relative mx-auto grid w-full max-w-7xl gap-14 px-6 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:gap-20 lg:px-12">
         <div>
@@ -54,7 +55,7 @@ export default function PageHero({
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.12}>
-            <h1 className="mt-5 font-display text-[2.7rem] leading-[1.04] text-charcoal sm:text-6xl md:text-[4.4rem]">
+            <h1 className="mt-5 font-display text-[2.7rem] font-light leading-[1.04] text-forest sm:text-6xl md:text-[4.4rem]">
               {title}
             </h1>
           </ScrollReveal>
@@ -68,7 +69,7 @@ export default function PageHero({
               {stats.map((s) => (
                 <StaggerItem key={s.label}>
                   <div>
-                    <div className="font-display text-4xl text-terracotta">{s.value}</div>
+                    <div className="font-display text-4xl text-forest">{s.value}</div>
                     <div className="mt-1 text-[0.7rem] uppercase tracking-[0.2em] text-taupe">{s.label}</div>
                   </div>
                 </StaggerItem>
@@ -89,7 +90,7 @@ export default function PageHero({
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="shadow-[0_40px_80px_-40px_rgba(43,41,37,0.4)]"
             />
-            <div aria-hidden className="absolute -bottom-6 -left-6 h-24 w-24 rounded-2xl border border-line bg-linen sm:h-28 sm:w-28" />
+            <div aria-hidden className="tape-edge absolute -bottom-6 -left-6 h-24 w-24 border border-forest/20 bg-linen sm:h-28 sm:w-28" />
           </div>
         </ScrollReveal>
       </div>

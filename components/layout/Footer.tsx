@@ -8,7 +8,8 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-linen-dark text-linen">
       <div aria-hidden className="weave-texture pointer-events-none absolute inset-0 opacity-[0.06]" />
-      <div aria-hidden className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-sage/15 blur-3xl" />
+      <div aria-hidden className="pattern-grid-light pointer-events-none absolute inset-0 opacity-40" />
+      <div aria-hidden className="stitch-light absolute inset-x-0 top-0 h-px opacity-60" />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <div className="grid gap-14 py-20 md:grid-cols-[1.3fr_1fr_1.2fr] md:py-24">
@@ -82,7 +83,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-linen/10 py-7 text-[0.75rem] text-linen/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative flex flex-col gap-3 py-7 text-[0.75rem] text-linen/50 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-[repeating-linear-gradient(to_right,rgb(255_255_255/0.25)_0_8px,transparent_8px_16px)] sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year}{" "}
             <span translate="no" className="notranslate">

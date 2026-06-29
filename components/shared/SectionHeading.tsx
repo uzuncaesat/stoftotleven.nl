@@ -19,7 +19,7 @@ export default function SectionHeading({
   className?: string;
 }) {
   const alignCls = align === "center" ? "items-center text-center" : "items-start text-left";
-  const titleColor = tone === "light" ? "text-linen" : "text-charcoal";
+  const titleColor = tone === "light" ? "text-linen" : "text-forest";
   const introColor = tone === "light" ? "text-linen/70" : "text-taupe";
 
   return (
@@ -28,7 +28,7 @@ export default function SectionHeading({
         <span className={`eyebrow ${tone === "light" ? "text-linen/60" : ""}`}>{eyebrow}</span>
       </ScrollReveal>
       <ScrollReveal direction="up" delay={0.08}>
-        <h2 className={`mt-5 font-display text-4xl leading-[1.08] sm:text-5xl md:text-[3.4rem] ${titleColor}`}>
+        <h2 className={`mt-5 font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-[3.4rem] ${titleColor}`}>
           {title}
         </h2>
       </ScrollReveal>

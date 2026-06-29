@@ -38,7 +38,7 @@ export default function Logo({
       aria-label="Stof tot Leven by Hatish — Hillegersberg"
     >
       <span
-        className={`relative ${box} shrink-0 overflow-hidden rounded-xl ${tint}`}
+        className={`relative ${box} shrink-0 overflow-hidden rounded-none ${tint}`}
       >
         <Image
           src="/logo.jpg"
@@ -51,14 +51,14 @@ export default function Logo({
       </span>
       <span className="flex flex-col leading-none" translate="no">
         <span
-          className={`font-display text-[1.18rem] tracking-tight sm:text-[1.32rem] ${
+          className={`whitespace-nowrap font-display text-[1.1rem] tracking-tight sm:text-[1.22rem] ${
             tone === "light" ? "text-linen" : "text-forest"
           }`}
         >
           Stof tot Leven
         </span>
         <span
-          className={`mt-1 text-[0.58rem] uppercase tracking-[0.36em] ${
+          className={`mt-1 whitespace-nowrap text-[0.52rem] uppercase tracking-[0.28em] ${
             tone === "light" ? "text-linen/60" : "text-forest/55"
           }`}
         >
@@ -73,7 +73,7 @@ export default function Logo({
     <Link
       href="/"
       aria-label="Stof tot Leven — naar de homepage"
-      className="-m-1 rounded-2xl p-1 transition-opacity hover:opacity-90"
+      className="-m-1 rounded-none p-1 transition-opacity hover:opacity-90"
     >
       {inner}
     </Link>

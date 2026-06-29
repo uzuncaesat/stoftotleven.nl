@@ -61,16 +61,20 @@ export default function ContactPage() {
   return (
     <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-linen pt-24 sm:pt-28">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="weave-texture absolute inset-0 opacity-30" />
-        <div className="absolute -right-32 -top-20 h-[28rem] w-[28rem] rounded-full bg-sage/25 blur-[120px]" />
-        <div className="absolute -left-32 bottom-0 h-[22rem] w-[22rem] rounded-full bg-straw/30 blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-linen-deep/40 via-linen to-linen" />
+        <div className="weave-texture absolute inset-0 opacity-25" />
+        <div className="pattern-grid absolute inset-0 opacity-50" />
       </div>
 
       <div className="relative mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-start gap-10 px-6 py-8 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:px-12 lg:py-10">
         {/* LEFT — intro + details */}
         <div>
-          <span className="eyebrow">Contact</span>
-          <h1 className="mt-4 font-display text-[clamp(2.4rem,5vw,4rem)] leading-[1.04] text-forest">
+          <div className="mb-6 flex items-center gap-4">
+            <span className="section-index">07</span>
+            <span className="stitch-soft h-px w-12" />
+            <span className="text-[0.68rem] uppercase tracking-[0.26em] text-forest/55">Contact</span>
+          </div>
+          <h1 className="mt-2 font-display text-[clamp(2.4rem,5vw,4rem)] font-light leading-[1.04] text-forest">
             Even <span className="italic text-sage">kennismaken</span>?
           </h1>
           <p className="mt-5 max-w-prose text-[1.04rem] leading-relaxed text-forest/80">
@@ -82,8 +86,8 @@ export default function ContactPage() {
           <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {DETAILS.map(({ icon: Icon, label, primary, secondary, href }) => {
               const content = (
-                <span className="flex items-start gap-3 rounded-2xl border border-line bg-linen-deep/70 px-4 py-3 transition-colors duration-300 hover:border-forest/40 hover:bg-linen-deep">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-linen text-forest">
+                <span className="flex items-start gap-3 rounded-none border border-line bg-linen-deep/70 px-4 py-3 transition-colors duration-300 hover:border-forest/40 hover:bg-linen-deep">
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-linen text-forest">
                     <Icon className="h-4 w-4" />
                   </span>
                   <span className="min-w-0">
@@ -117,7 +121,7 @@ export default function ContactPage() {
             })}
           </div>
 
-          <div className="mt-6 flex items-start gap-3 rounded-2xl border border-forest/15 bg-sage/10 px-4 py-3 text-[0.82rem] leading-relaxed text-forest/80">
+          <div className="mt-6 flex items-start gap-3 rounded-none border border-dashed border-forest/25 bg-sage/10 px-4 py-3 text-[0.82rem] leading-relaxed text-forest/80">
             <Clock className="mt-0.5 h-4 w-4 shrink-0 text-forest" />
             <p>
               Langskomen kan op afspraak — zo nemen we echt de tijd voor u. Of
@@ -129,10 +133,10 @@ export default function ContactPage() {
 
         {/* RIGHT — form */}
         <div className="relative">
-          <div className="rounded-[1.75rem] border border-line bg-linen p-6 shadow-[0_30px_70px_-50px_rgba(45,74,62,0.5)] sm:p-8">
+          <div className="relative rounded-none border border-line bg-linen p-6 shadow-[0_30px_70px_-50px_rgba(45,74,62,0.5)] before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:bg-[repeating-linear-gradient(to_right,rgb(47_76_72/0.55)_0_9px,transparent_9px_17px)] sm:p-8">
             <div className="flex flex-wrap items-end justify-between gap-3">
               <div>
-                <h2 className="font-display text-2xl text-forest sm:text-3xl">
+                <h2 className="font-display text-2xl font-light text-forest sm:text-3xl">
                   Stuur een bericht
                 </h2>
                 <p className="mt-1 text-[0.85rem] text-taupe">

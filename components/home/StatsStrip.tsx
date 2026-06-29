@@ -45,15 +45,18 @@ export default function StatsStrip() {
       className="relative overflow-hidden bg-linen-dark py-16 text-linen sm:py-20"
     >
       <div aria-hidden className="weave-texture pointer-events-none absolute inset-0 opacity-[0.06]" />
-      <div aria-hidden className="pointer-events-none absolute -right-32 -top-24 h-96 w-96 rounded-full bg-sage/15 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-straw/10 blur-3xl" />
+      <div aria-hidden className="pattern-grid-light pointer-events-none absolute inset-0 opacity-50" />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <ScrollReveal direction="up">
+          <div className="mb-10 flex items-center gap-4">
+            <span className="section-index text-sage">03</span>
+            <span className="stitch-light h-px flex-1 opacity-50" />
+            <span className="text-[0.68rem] uppercase tracking-[0.26em] text-linen/55">In cijfers</span>
+          </div>
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <span className="eyebrow text-linen/70">In cijfers</span>
-              <h2 className="mt-3 font-display text-3xl leading-tight text-linen sm:text-4xl">
+              <h2 className="font-display text-3xl font-light leading-tight text-linen sm:text-4xl">
                 Twintig jaar vakmanschap,{" "}
                 <span className="italic text-sage">verweven in Rotterdam</span>.
               </h2>
@@ -65,8 +68,9 @@ export default function StatsStrip() {
           </div>
         </ScrollReveal>
 
+        <div aria-hidden className="stitch-light mt-12 h-px opacity-50" />
         <Stagger
-          className="mt-12 grid grid-cols-2 gap-y-10 gap-x-8 border-t border-linen/10 pt-12 md:grid-cols-4"
+          className="mt-12 grid grid-cols-2 gap-y-10 gap-x-8 md:grid-cols-4"
           staggerChildren={0.1}
         >
           {STATS.map((s) => (

@@ -68,29 +68,104 @@ body {
 
 @layer base {
   h1, h2, h3, h4 {
-    font-family: var(--font-display), "Halant", Georgia, serif;
-    font-weight: 500;
-    letter-spacing: -0.005em;
+    font-family: var(--font-display), "Fraunces", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.012em;
     color: rgb(var(--color-primary));
   }
 
-  /* Flat / sharp visual language — borderRadius: 0px in spec */
+  /* Flat / sharp visual language — the atelier works in straight, measured
+     lines. borderRadius: 0px globally; no soft pills anywhere. */
   button, input, select, textarea, a {
     border-radius: 0;
+  }
+
+  /* Focus ring in brand teal, sharp */
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
   }
 }
 
 @layer components {
-  /* Eyebrow / kicker label */
+  /* ── Eyebrow / kicker — set as a tailor's index tab ──────────────── */
   .eyebrow {
-    @apply inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.28em] text-forest/70;
-    font-family: var(--font-body), "Roboto", Helvetica, Arial, sans-serif;
+    @apply inline-flex items-center gap-3 text-[0.68rem] uppercase tracking-[0.26em] text-forest/70;
+    font-family: var(--font-body), Helvetica, Arial, sans-serif;
+    font-weight: 500;
   }
   .eyebrow::before {
     content: "";
-    @apply h-px w-8 bg-forest/70;
+    @apply h-px w-9 shrink-0 bg-forest/55;
   }
 
+  /* ── Running-stitch rule — a dashed seam, the signature divider ──── */
+  .stitch {
+    height: 2px;
+    width: 100%;
+    background-image: repeating-linear-gradient(
+      to right,
+      rgb(var(--color-primary) / 0.55) 0 9px,
+      transparent 9px 17px
+    );
+  }
+  .stitch-soft {
+    background-image: repeating-linear-gradient(
+      to right,
+      rgb(var(--color-primary) / 0.28) 0 7px,
+      transparent 7px 14px
+    );
+  }
+  .stitch-light {
+    background-image: repeating-linear-gradient(
+      to right,
+      rgb(var(--color-bg) / 0.45) 0 9px,
+      transparent 9px 17px
+    );
+  }
+  /* Vertical seam variant */
+  .stitch-y {
+    width: 2px;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgb(var(--color-primary) / 0.45) 0 9px,
+      transparent 9px 17px
+    );
+  }
+
+  /* ── Tailor's measuring-tape — a ticked edge strip ──────────────── */
+  .tape-edge {
+    background-image: repeating-linear-gradient(
+      to right,
+      rgb(var(--color-primary) / 0.5) 0 1px,
+      transparent 1px 13px
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 9px;
+    background-position: 0 0;
+  }
+
+  /* ── Pattern-paper blueprint grid — replaces blurred gradient blobs ─ */
+  .pattern-grid {
+    background-image:
+      linear-gradient(to right, rgb(var(--color-primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--color-primary) / 0.05) 1px, transparent 1px);
+    background-size: 38px 38px;
+  }
+  .pattern-grid-light {
+    background-image:
+      linear-gradient(to right, rgb(var(--color-bg) / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--color-bg) / 0.06) 1px, transparent 1px);
+    background-size: 38px 38px;
+  }
+
+  /* ── Section index numeral (01 / 02 …) ──────────────────────────── */
+  .section-index {
+    font-family: var(--font-display), "Fraunces", Georgia, serif;
+    @apply text-[0.82rem] font-medium tracking-[0.1em] text-forest/45 tabular-nums;
+  }
+
+  /* ── Animated underline link ────────────────────────────────────── */
   .link-underline {
     background-image: linear-gradient(rgb(var(--color-primary)), rgb(var(--color-primary)));
     background-size: 0% 1px;
@@ -102,7 +177,7 @@ body {
     background-size: 100% 1px;
   }
 
-  /* Woven fabric texture — subtle diagonal weave */
+  /* ── Woven fabric texture — subtle diagonal weave ───────────────── */
   .weave-texture {
     background-image:
       repeating-linear-gradient(45deg, rgb(var(--color-line) / 0.35) 0 1px, transparent 1px 7px),

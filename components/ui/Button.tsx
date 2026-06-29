@@ -11,18 +11,20 @@ type CommonProps = {
   withArrow?: boolean;
 };
 
+// Sharp, measured tailor's button — no pills. A solid fill slides up on
+// hover like a seam closing; corners stay square per the 0px design system.
 const base =
-  "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full px-7 py-3.5 text-[0.78rem] font-medium uppercase tracking-[0.18em] transition-colors duration-500 ease-out-expo";
+  "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-none px-7 py-3.5 text-[0.74rem] font-medium uppercase tracking-[0.2em] transition-colors duration-500 ease-out-expo";
 
 const variants: Record<Variant, string> = {
   solid:
-    "bg-charcoal text-linen hover:text-linen [--fill:theme(colors.terracotta)]",
+    "bg-forest text-linen hover:text-forest [--fill:theme(colors.sage)]",
   outline:
-    "border border-charcoal/35 text-charcoal hover:text-linen [--fill:theme(colors.charcoal)]",
+    "border border-forest/30 text-forest hover:text-linen [--fill:theme(colors.forest)]",
   light:
-    "bg-linen text-charcoal hover:text-charcoal [--fill:theme(colors.terracotta-soft)]",
+    "bg-linen text-forest hover:text-linen [--fill:theme(colors.forest)]",
   ghost:
-    "text-charcoal hover:text-terracotta tracking-[0.18em]",
+    "text-forest hover:text-sage tracking-[0.2em]",
 };
 
 function Inner({ children, withArrow, variant }: { children: ReactNode; withArrow?: boolean; variant: Variant }) {
