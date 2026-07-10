@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import ScreenPage from "@/components/shared/ScreenPage";
-import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Raamdecoratie op maat",
@@ -13,25 +12,25 @@ const STEPS = [
     step: "01",
     title: "Inmeting bij u thuis",
     text: "We meten elk raam precies in en kijken naar lichtval, hoogte en de sfeer van de ruimte.",
-    src: IMAGES.windowSeat,
+    src: "/photos/raamdecoratie/2.jpg",
   },
   {
     step: "02",
     title: "Stofkeuze & advies",
     text: "Linnen, velours, vitrage of verduisterend — we kiezen samen wat past bij interieur en gebruik.",
-    src: IMAGES.fabricSamples,
+    src: "/photos/raamdecoratie/4.jpg",
   },
   {
     step: "03",
     title: "Maken in het atelier",
     text: "Elk gordijn wordt op maat gemaakt: plooien, zoom en val handmatig afgewerkt.",
-    src: IMAGES.sewingHands,
+    src: "/photos/raamdecoratie/1.jpg",
   },
   {
     step: "04",
     title: "Afwerking & plaatsing",
     text: "Rails, roedes en bediening — wij hangen het op alsof het er altijd al hing.",
-    src: IMAGES.curtainsLight,
+    src: "/photos/raamdecoratie/5.jpg",
   },
 ];
 

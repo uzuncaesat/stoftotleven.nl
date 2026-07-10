@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import ScreenPage from "@/components/shared/ScreenPage";
-import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Stofferen",
@@ -13,25 +12,25 @@ const STEPS = [
     step: "01",
     title: "Adviesgesprek",
     text: "We bekijken het meubel samen, bespreken uw wensen en wat haalbaar is qua stof, vulling en constructie.",
-    src: IMAGES.armchairDetail,
+    src: "/photos/stofferen/1.jpg",
   },
   {
     step: "02",
     title: "Stoffen kiezen",
     text: "Met stalen in de hand kiezen we kleur, structuur en sterkte — passend bij de ruimte en het gebruik.",
-    src: IMAGES.fabricStacks,
+    src: "/photos/stofferen/4.jpg",
   },
   {
     step: "03",
     title: "Vakmanschap in het atelier",
     text: "Het meubel wordt gestript, hersteld, opnieuw opgevuld en strak bekleed — met de hand afgewerkt.",
-    src: IMAGES.sewingHands,
+    src: "/photos/stofferen/3.jpg",
   },
   {
     step: "04",
     title: "Oplevering",
     text: "Uw meubel komt terug zoals afgesproken: schoon, stevig en klaar voor de volgende twintig jaar.",
-    src: IMAGES.armchairYellow,
+    src: "/photos/stofferen/5.jpg",
   },
 ];
 

@@ -23,5 +23,8 @@ yarn-error.log*
 # deployment
 .vercel
 
+# raw client photos (originals with unsafe filenames) — web copies live in /public/photos
+/public/Fotoğraflar/
+
 # claude code bundled skills / local tooling
 /.claude/
