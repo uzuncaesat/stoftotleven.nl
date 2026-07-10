@@ -46,12 +46,6 @@ export default function ScreenPage({
 }: Props) {
   return (
     <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-linen pt-24 sm:pt-28">
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-linen-deep/40 via-linen to-linen" />
-        <div className="weave-texture absolute inset-0 opacity-25" />
-        <div className="pattern-grid absolute inset-0 opacity-50" />
-      </div>
-
       <div className="relative mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-10 px-6 py-8 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14 lg:px-12 lg:py-10">
         {/* LEFT: text */}
         <div className="flex flex-col">
@@ -91,7 +85,7 @@ export default function ScreenPage({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 font-display text-[clamp(2.4rem,5.4vw,4.4rem)] font-light leading-[1.02] text-forest"
+            className="mt-4 text-[clamp(2.4rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.025em] text-ink"
           >
             <span translate="no" className="notranslate">
               {title}
@@ -145,13 +139,10 @@ export default function ScreenPage({
           >
             <Link
               href={cta.href}
-              className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-none bg-forest px-6 py-3 text-[0.74rem] font-medium uppercase tracking-[0.18em] text-linen transition-colors duration-500 ease-out-expo hover:text-forest"
+              className="group inline-flex items-center gap-2.5 bg-ink px-6 py-3 text-[0.74rem] font-medium uppercase tracking-[0.18em] text-linen transition-colors duration-300 hover:bg-forest-soft"
             >
-              <span aria-hidden className="absolute inset-0 translate-y-full bg-sage transition-transform duration-500 ease-out-expo group-hover:translate-y-0" />
-              <span className="relative z-10 flex items-center gap-2.5">
-                {cta.label}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </span>
+              {cta.label}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             {altCta && (
               <Link

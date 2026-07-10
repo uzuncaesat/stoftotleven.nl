@@ -116,7 +116,6 @@ export default function Navbar() {
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0 bg-linen-dark"
             >
-              <div className="weave-texture absolute inset-0 opacity-[0.07]" />
               <div className="relative flex h-full flex-col px-7 pt-6">
                 <div className="flex items-center justify-between">
                   <Logo tone="light" size="sm" />

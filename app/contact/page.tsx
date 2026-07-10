@@ -60,22 +60,14 @@ const DETAILS = [
 export default function ContactPage() {
   return (
     <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-linen pt-24 sm:pt-28">
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-linen-deep/40 via-linen to-linen" />
-        <div className="weave-texture absolute inset-0 opacity-25" />
-        <div className="pattern-grid absolute inset-0 opacity-50" />
-      </div>
-
       <div className="relative mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-start gap-10 px-6 py-8 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:px-12 lg:py-10">
         {/* LEFT — intro + details */}
         <div>
-          <div className="mb-6 flex items-center gap-4">
-            <span className="section-index">07</span>
-            <span className="stitch-soft h-px w-12" />
-            <span className="text-[0.68rem] uppercase tracking-[0.26em] text-forest/55">Contact</span>
-          </div>
-          <h1 className="mt-2 font-display text-[clamp(2.4rem,5vw,4rem)] font-light leading-[1.04] text-forest">
-            Even <span className="italic text-sage">kennismaken</span>?
+          <p className="mb-6 text-[0.72rem] font-medium uppercase tracking-[0.24em] text-taupe">
+            Contact
+          </p>
+          <h1 className="mt-2 text-[clamp(2.4rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.025em] text-ink">
+            Even kennismaken?
           </h1>
           <p className="mt-5 max-w-prose text-[1.04rem] leading-relaxed text-forest/80">
             Neem contact op voor advies, een prijsaanvraag of het plannen van een
@@ -121,7 +113,7 @@ export default function ContactPage() {
             })}
           </div>
 
-          <div className="mt-6 flex items-start gap-3 rounded-none border border-dashed border-forest/25 bg-sage/10 px-4 py-3 text-[0.82rem] leading-relaxed text-forest/80">
+          <div className="mt-6 flex items-start gap-3 rounded-none border border-line bg-linen-deep px-4 py-3 text-[0.82rem] leading-relaxed text-ink/75">
             <Clock className="mt-0.5 h-4 w-4 shrink-0 text-forest" />
             <p>
               Langskomen kan op afspraak — zo nemen we echt de tijd voor u. Of
@@ -133,7 +125,7 @@ export default function ContactPage() {
 
         {/* RIGHT — form */}
         <div className="relative">
-          <div className="relative rounded-none border border-line bg-linen p-6 shadow-[0_30px_70px_-50px_rgba(45,74,62,0.5)] before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:bg-[repeating-linear-gradient(to_right,rgb(47_76_72/0.55)_0_9px,transparent_9px_17px)] sm:p-8">
+          <div className="relative rounded-none border border-line bg-linen p-6 shadow-[0_30px_70px_-50px_rgba(20,21,22,0.4)] sm:p-8">
             <div className="flex flex-wrap items-end justify-between gap-3">
               <div>
                 <h2 className="font-display text-2xl font-light text-forest sm:text-3xl">

@@ -17,8 +17,7 @@ export type SwatchName = keyof typeof SWATCHES;
 /**
  * Framed media block. With `video` it renders a muted, looping background clip;
  * with `src` it renders an optimised photograph behind a subtle editorial
- * overlay; without either it falls back to a styled fabric-swatch placeholder.
- * Sharp corners and a stitched inner frame keep the tailor's-atelier language.
+ * overlay; without either it falls back to a neutral placeholder panel.
  */
 export default function MediaPanel({
   src,
@@ -81,9 +80,8 @@ export default function MediaPanel({
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out-expo group-hover/media:scale-[1.04]"
         />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-forest/55 via-forest/10 to-transparent" />
-        <div aria-hidden className="weave-texture absolute inset-0 opacity-15 mix-blend-overlay" />
-        {framed && <div aria-hidden className="absolute inset-3 border border-white/25" />}
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+        {framed && <div aria-hidden className="absolute inset-3 border border-white/20" />}
         {captionEl("text-white/90")}
       </div>
     );
@@ -103,9 +101,8 @@ export default function MediaPanel({
           priority={priority}
           className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover/media:scale-[1.04]"
         />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-forest/55 via-forest/10 to-transparent" />
-        <div aria-hidden className="weave-texture absolute inset-0 opacity-15 mix-blend-overlay" />
-        {framed && <div aria-hidden className="absolute inset-3 border border-white/25" />}
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+        {framed && <div aria-hidden className="absolute inset-3 border border-white/20" />}
         {captionEl("text-white/90")}
       </div>
     );
@@ -118,9 +115,7 @@ export default function MediaPanel({
         className="absolute inset-0"
         style={{ background: `linear-gradient(135deg, ${s.from}, ${s.to})` }}
       />
-      <div className="weave-texture absolute inset-0 opacity-50 mix-blend-overlay" />
-      <div className="pattern-grid-light absolute inset-0 opacity-40" />
-      {framed && <div className="absolute inset-3 border border-dashed border-white/40" />}
+      {framed && <div className="absolute inset-3 border border-white/30" />}
       <div className={`absolute inset-0 flex items-end p-6 ${dark ? "text-white/70" : "text-forest/55"}`}>
         {children ?? (
           <span className="inline-flex items-center gap-2.5 text-[0.62rem] uppercase tracking-[0.28em]">

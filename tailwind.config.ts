@@ -53,27 +53,6 @@ const config: Config = {
       transitionTimingFunction: {
         "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
       },
-      keyframes: {
-        "draw-thread": {
-          from: { strokeDashoffset: "1" },
-          to: { strokeDashoffset: "0" },
-        },
-        "float-slow": {
-          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
-          "50%": { transform: "translateY(-14px) rotate(2deg)" },
-        },
-        "grain-shift": {
-          "0%, 100%": { transform: "translate(0, 0)" },
-          "20%": { transform: "translate(-5%, 5%)" },
-          "40%": { transform: "translate(3%, -8%)" },
-          "60%": { transform: "translate(-7%, 3%)" },
-          "80%": { transform: "translate(6%, 6%)" },
-        },
-      },
-      animation: {
-        "float-slow": "float-slow 9s ease-in-out infinite",
-        "grain-shift": "grain-shift 8s steps(5) infinite",
-      },
     },
   },
   plugins: [],
