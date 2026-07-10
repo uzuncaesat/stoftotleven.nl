@@ -7,7 +7,7 @@ import { IMAGES } from "@/lib/images";
 
 export default function AboutHatish() {
   return (
-    <section id="over-hatish" className="relative bg-linen py-24 sm:py-28 md:py-32">
+    <section id="over-hatish" className="relative bg-linen-deep py-24 sm:py-32">
       <div className="mx-auto grid w-full max-w-7xl gap-14 px-6 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20 lg:px-12">
         {/* media side — real atelier footage */}
         <ScrollReveal direction="right">
@@ -28,7 +28,7 @@ export default function AboutHatish() {
             <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-taupe">
               Over Hatish
             </p>
-            <h2 className="mt-5 text-3xl font-semibold leading-[1.12] tracking-[-0.02em] text-ink sm:text-4xl md:text-[2.75rem]">
+            <h2 className="mt-5 text-4xl font-semibold leading-[1.08] tracking-[-0.025em] text-ink sm:text-5xl">
               Twintig jaar vakmanschap in maatwerk textiel.
             </h2>
           </ScrollReveal>

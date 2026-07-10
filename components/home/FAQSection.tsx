@@ -88,7 +88,7 @@ export default function FAQSection() {
   return (
     <section
       aria-label="Veelgestelde vragen"
-      className="relative bg-linen-deep py-20 sm:py-24"
+      className="relative bg-linen py-24 sm:py-32"
     >
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <ScrollReveal direction="up">
@@ -96,7 +96,7 @@ export default function FAQSection() {
             Veelgestelde vragen
           </p>
           <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="text-3xl font-semibold leading-[1.12] tracking-[-0.02em] text-ink sm:text-4xl">
+            <h2 className="max-w-2xl text-4xl font-semibold leading-[1.08] tracking-[-0.025em] text-ink sm:text-5xl">
               Antwoord op de meest gestelde vragen.
             </h2>
             <a

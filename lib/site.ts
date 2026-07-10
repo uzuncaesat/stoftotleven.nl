@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 import { Blinds, Armchair, Sofa, Sailboat, Handshake } from "lucide-react";
-import { IMAGES } from "@/lib/images";
 
 export const NAV_LINKS = [
   { label: "Raamdecoratie", href: "/raamdecoratie" },
@@ -28,7 +27,7 @@ export const SERVICES: Service[] = [
     blurb: "Rust, sfeer en functionaliteit bij het raam.",
     description:
       "Raamdecoratie op maat die rust, sfeer en functionaliteit samenbrengt. Wij begeleiden u van stofkeuze en inmeting tot afwerking en plaatsing.",
-    image: IMAGES.curtainsCozy,
+    image: "/photos/raamdecoratie/5.jpg",
   },
   {
     icon: Armchair,
@@ -37,7 +36,7 @@ export const SERVICES: Service[] = [
     blurb: "Meubels die het waard zijn om te behouden.",
     description:
       "Stoffeerwerk op maat voor meubels die het waard zijn om te behouden. Zo krijgt een bestaand meubel opnieuw comfort, karakter en een uitstraling die past bij uw interieur.",
-    image: IMAGES.armchairYellow,
+    image: "/photos/stofferen/2.jpg",
   },
   {
     icon: Sofa,
@@ -46,7 +45,7 @@ export const SERVICES: Service[] = [
     blurb: "Comfort en dagelijks gebruik, binnen én buiten.",
     description:
       "Kussens op maat voor binnen- en buitenruimtes, ontworpen voor comfort en dagelijks gebruik. Praktisch in vorm, sterk in afwerking en passend bij uw stijl.",
-    image: IMAGES.cushionsSofa,
+    image: "/photos/kussens/1.jpg",
   },
   {
     icon: Sailboat,
@@ -55,7 +54,7 @@ export const SERVICES: Service[] = [
     blurb: "Van herstel tot vernieuwing aan boord.",
     description:
       "Maatwerk voor bootinterieurs en maritieme kussens, van herstel tot vernieuwing. Ideaal voor wie een verzorgde, duurzame en functionele oplossing zoekt aan boord.",
-    image: IMAGES.boatInterior,
+    image: "/photos/kussens/3.jpg",
   },
   {
     icon: Handshake,
@@ -64,7 +63,7 @@ export const SERVICES: Service[] = [
     blurb: "Een betrouwbare uitvoeringspartner — white-label.",
     description:
       "Voor architecten, interieurontwerpers, stylisten, aannemers en hospitality-ondernemers die een betrouwbare uitvoeringspartner zoeken achter de schermen.",
-    image: IMAGES.interiorStudio,
+    image: "/photos/stofferen/6.jpg",
   },
 ];
 
