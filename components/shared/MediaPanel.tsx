@@ -3,13 +3,13 @@ import type { ReactNode } from "react";
 
 type Swatch = { from: string; to: string };
 
-// Brand-aligned fabric swatches — teal / sage / cream only.
+// Neutral placeholder tones — business-gray palette.
 const SWATCHES: Record<string, Swatch> = {
-  terracotta: { from: "rgb(145 162 161 / 0.92)", to: "rgb(176 189 188 / 0.85)" }, // legacy alias → sage
-  straw: { from: "rgb(233 217 195 / 0.96)", to: "rgb(214 197 174 / 0.92)" },
-  charcoal: { from: "rgb(47 76 72 / 0.96)", to: "rgb(75 109 104 / 0.9)" },
-  sage: { from: "rgb(145 162 161 / 0.92)", to: "rgb(176 189 188 / 0.85)" },
-  ink: { from: "rgb(38 60 57 / 0.97)", to: "rgb(62 92 87 / 0.9)" },
+  terracotta: { from: "rgb(214 214 210 / 0.95)", to: "rgb(232 232 228 / 0.9)" },
+  straw: { from: "rgb(238 238 235 / 0.96)", to: "rgb(224 224 220 / 0.92)" },
+  charcoal: { from: "rgb(32 33 35 / 0.96)", to: "rgb(58 59 61 / 0.9)" },
+  sage: { from: "rgb(214 214 210 / 0.95)", to: "rgb(232 232 228 / 0.9)" },
+  ink: { from: "rgb(20 21 22 / 0.97)", to: "rgb(48 49 51 / 0.9)" },
 };
 
 export type SwatchName = keyof typeof SWATCHES;

@@ -1,6 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
 import AboutHatish from "@/components/home/AboutHatish";
-import InstagramFeed from "@/components/home/InstagramFeed";
 import FAQSection from "@/components/home/FAQSection";
 
 export default function HomePage() {
@@ -8,7 +7,6 @@ export default function HomePage() {
     <>
       <HeroSection />
       <AboutHatish />
-      <InstagramFeed />
       <FAQSection />
     </>
   );

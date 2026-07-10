@@ -1,31 +1,16 @@
 import type { Metadata } from "next";
-import { Fraunces, Hanken_Grotesk, Alex_Brush } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/layout/Preloader";
 
-// Display — Fraunces: a characterful "old-style" craft serif with warmth
-// and personality (soft serifs, expressive italics). Fits a tailor's atelier.
-const display = Fraunces({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-// Body — Hanken Grotesk: a warm humanist grotesque, far more characterful
-// than Roboto while staying highly legible.
+// Single family — Hanken Grotesk: a warm humanist grotesque. All display,
+// body and legacy script slots resolve to this one sans for the
+// business-neutral design language.
 const body = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-body",
-  display: "swap",
-});
-
-const script = Alex_Brush({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-script",
   display: "swap",
 });
 
@@ -57,10 +42,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl" className={`${display.variable} ${body.variable} ${script.variable}`}>
+    <html lang="nl" className={body.variable}>
       <body className="font-sans antialiased">
         <Preloader />
-        <div aria-hidden className="grain-layer" />
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -11,38 +11,25 @@ type CommonProps = {
   withArrow?: boolean;
 };
 
-// Sharp, measured tailor's button — no pills. A solid fill slides up on
-// hover like a seam closing; corners stay square per the 0px design system.
+// Quiet corporate button — square corners, single-color transitions.
 const base =
-  "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-none px-7 py-3.5 text-[0.74rem] font-medium uppercase tracking-[0.2em] transition-colors duration-500 ease-out-expo";
+  "group inline-flex items-center justify-center gap-2.5 rounded-none px-7 py-3.5 text-[0.74rem] font-medium uppercase tracking-[0.18em] transition-colors duration-300";
 
 const variants: Record<Variant, string> = {
-  solid:
-    "bg-forest text-linen hover:text-forest [--fill:theme(colors.sage)]",
-  outline:
-    "border border-forest/30 text-forest hover:text-linen [--fill:theme(colors.forest)]",
-  light:
-    "bg-linen text-forest hover:text-linen [--fill:theme(colors.forest)]",
-  ghost:
-    "text-forest hover:text-sage tracking-[0.2em]",
+  solid: "bg-ink text-linen hover:bg-forest-soft",
+  outline: "border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-linen",
+  light: "bg-linen text-ink hover:bg-linen-deep",
+  ghost: "text-ink hover:opacity-70",
 };
 
-function Inner({ children, withArrow, variant }: { children: ReactNode; withArrow?: boolean; variant: Variant }) {
+function Inner({ children, withArrow }: { children: ReactNode; withArrow?: boolean }) {
   return (
-    <>
-      {variant !== "ghost" && (
-        <span
-          aria-hidden
-          className="absolute inset-0 -z-0 translate-y-full bg-[var(--fill)] transition-transform duration-500 ease-out-expo group-hover:translate-y-0"
-        />
+    <span className="flex items-center gap-2.5">
+      {children}
+      {withArrow && (
+        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
       )}
-      <span className="relative z-10 flex items-center gap-2.5">
-        {children}
-        {withArrow && (
-          <ArrowRight className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:translate-x-1" />
-        )}
-      </span>
-    </>
+    </span>
   );
 }
 
@@ -55,9 +42,7 @@ export function ButtonLink({
 }: CommonProps & { href: string }) {
   return (
     <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
-      <Inner variant={variant} withArrow={withArrow}>
-        {children}
-      </Inner>
+      <Inner withArrow={withArrow}>{children}</Inner>
     </Link>
   );
 }
@@ -76,9 +61,7 @@ export function Button({
       disabled={disabled}
       className={`${base} ${variants[variant]} ${className} disabled:cursor-not-allowed disabled:opacity-60`}
     >
-      <Inner variant={variant} withArrow={withArrow}>
-        {children}
-      </Inner>
+      <Inner withArrow={withArrow}>{children}</Inner>
     </button>
   );
 }

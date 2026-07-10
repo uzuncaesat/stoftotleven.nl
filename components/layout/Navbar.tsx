@@ -65,7 +65,7 @@ export default function Navbar() {
                     {active && (
                       <motion.span
                         layoutId="nav-active"
-                        className="stitch absolute inset-x-3 -bottom-[5px]"
+                        className="absolute inset-x-3 -bottom-[5px] h-px bg-ink"
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}

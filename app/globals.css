@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 /* ============================================================
-   Stof tot Leven — design tokens (matched to stoftotleven.nl)
-   accent #2F4C48 (deep teal) · primary #91A2A1 (sage gray)
-   secondary #E9D9C3 (warm cream) · background #FFFFFF
-   Colors stored as space-separated RGB channels for <alpha-value>
+   Stof tot Leven — design tokens (business-neutral palette)
+   White ground · near-black ink · warm gray panels · no brand
+   color dependency. Colors stored as space-separated RGB
+   channels for <alpha-value>.
    ============================================================ */
 :root {
   --color-bg: 255 255 255;          /* #FFFFFF  page background */
-  --color-bg-deep: 233 217 195;     /* #E9D9C3  cream panels (secondary) */
-  --color-bg-dark: 47 76 72;        /* #2F4C48  deep teal (dark surfaces) */
-  --color-ink: 47 76 72;            /* #2F4C48  primary text */
-  --color-primary: 47 76 72;        /* #2F4C48  brand accent + body text */
-  --color-forest-soft: 75 109 104;  /* #4B6D68  hover state for teal */
-  --color-accent: 145 162 161;      /* #91A2A1  primary sage (UI accent) */
-  --color-accent-warm: 233 217 195; /* #E9D9C3  warm cream (legacy alias) */
-  --color-secondary: 233 217 195;   /* #E9D9C3  warm cream */
-  --color-muted: 116 130 129;       /* #748281  muted sage-gray */
-  --color-line: 222 222 218;        /* #DEDEDA  hairline */
+  --color-bg-deep: 246 246 244;     /* #F6F6F4  light gray panels */
+  --color-bg-dark: 20 21 22;        /* #141516  near-black (dark surfaces) */
+  --color-ink: 27 28 30;            /* #1B1C1E  primary text */
+  --color-primary: 27 28 30;        /* #1B1C1E  anthracite accent + text */
+  --color-forest-soft: 58 59 61;    /* #3A3B3D  hover state */
+  --color-accent: 138 138 134;      /* #8A8A86  neutral gray (UI accent) */
+  --color-accent-warm: 246 246 244; /* #F6F6F4  legacy alias */
+  --color-secondary: 246 246 244;   /* #F6F6F4  light gray */
+  --color-muted: 111 112 114;       /* #6F7072  muted gray */
+  --color-line: 232 232 230;        /* #E8E8E6  hairline */
 }
 
 * {
@@ -68,9 +68,9 @@ body {
 
 @layer base {
   h1, h2, h3, h4 {
-    font-family: var(--font-display), "Fraunces", Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.012em;
+    font-family: var(--font-body), Helvetica, Arial, sans-serif;
+    font-weight: 550;
+    letter-spacing: -0.02em;
     color: rgb(var(--color-primary));
   }
 
@@ -161,7 +161,7 @@ body {
 
   /* ── Section index numeral (01 / 02 …) ──────────────────────────── */
   .section-index {
-    font-family: var(--font-display), "Fraunces", Georgia, serif;
+    font-family: var(--font-body), Helvetica, Arial, sans-serif;
     @apply text-[0.82rem] font-medium tracking-[0.1em] text-forest/45 tabular-nums;
   }
 

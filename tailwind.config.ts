@@ -25,9 +25,11 @@ const config: Config = {
         line: "rgb(var(--color-line) / <alpha-value>)",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Halant", "Georgia", "serif"],
-        sans: ["var(--font-body)", "Roboto", "Helvetica", "Arial", "sans-serif"],
-        script: ["var(--font-script)", "Alex Brush", "cursive"],
+        /* Single sans family — business-neutral. display/script kept as
+           aliases so existing class usage keeps compiling. */
+        display: ["var(--font-body)", "Helvetica", "Arial", "sans-serif"],
+        sans: ["var(--font-body)", "Helvetica", "Arial", "sans-serif"],
+        script: ["var(--font-body)", "Helvetica", "Arial", "sans-serif"],
       },
       letterSpacing: {
         widest: "0.28em",

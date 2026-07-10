@@ -45,20 +45,20 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         <button
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          className="group flex w-full items-start justify-between gap-6 py-5 text-left transition-colors duration-200 hover:text-sage"
+          className="group flex w-full items-start justify-between gap-6 py-5 text-left"
         >
           <div className="flex items-start gap-4">
-            <span className="mt-0.5 shrink-0 font-display text-[0.78rem] italic text-sage/70">
+            <span className="mt-0.5 shrink-0 text-[0.78rem] font-medium tabular-nums text-taupe/70">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <span className="text-[0.98rem] font-medium leading-snug text-forest group-hover:text-sage transition-colors duration-200">
+            <span className="text-[0.98rem] font-medium leading-snug text-ink transition-opacity duration-200 group-hover:opacity-70">
               {q}
             </span>
           </div>
           <motion.span
             animate={{ rotate: open ? 45 : 0 }}
             transition={{ duration: 0.2 }}
-            className="mt-0.5 shrink-0 text-forest/60 group-hover:text-sage transition-colors duration-200"
+            className="mt-0.5 shrink-0 text-ink/50 transition-colors duration-200 group-hover:text-ink"
           >
             <Plus className="h-5 w-5" />
           </motion.span>
@@ -88,56 +88,41 @@ export default function FAQSection() {
   return (
     <section
       aria-label="Veelgestelde vragen"
-      className="relative overflow-hidden bg-linen-deep py-16 sm:py-20"
+      className="relative bg-linen-deep py-20 sm:py-24"
     >
-      <div aria-hidden className="weave-texture pointer-events-none absolute inset-0 opacity-[0.05]" />
-
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <ScrollReveal direction="up">
-          <div className="mb-10 flex items-center gap-4">
-            <span className="section-index text-sage">04</span>
-            <span className="stitch-soft h-px flex-1 opacity-50" />
-            <span className="text-[0.68rem] uppercase tracking-[0.26em] text-forest/55">
-              Veelgestelde vragen
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="font-display text-3xl font-light leading-tight text-forest sm:text-4xl">
-              Heeft u een vraag?{" "}
-              <span className="italic text-sage">Wij hebben het antwoord</span>.
+          <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-taupe">
+            Veelgestelde vragen
+          </p>
+          <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="text-3xl font-semibold leading-[1.12] tracking-[-0.02em] text-ink sm:text-4xl">
+              Antwoord op de meest gestelde vragen.
             </h2>
             <a
               href="/contact"
-              className="shrink-0 text-[0.78rem] uppercase tracking-[0.2em] text-forest/60 underline underline-offset-4 transition-colors hover:text-forest"
+              className="shrink-0 text-[0.74rem] font-medium uppercase tracking-[0.18em] text-taupe underline underline-offset-4 transition-colors hover:text-ink"
             >
               Stel uw vraag →
             </a>
           </div>
         </ScrollReveal>
 
-        <div aria-hidden className="stitch-soft mt-10 h-px opacity-40" />
+        <div aria-hidden className="mt-10 h-px bg-line" />
 
         <div className="mt-4 lg:grid lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           {/* Left decorative block — only on large screens */}
           <div className="hidden lg:block">
             <ScrollReveal direction="left" delay={0.1}>
               <div className="sticky top-28 space-y-6">
-                <p className="text-[0.93rem] leading-relaxed text-forest/65">
-                  Twijfelt u? Stel gerust uw vraag via het contactformulier of bel
-                  ons direct — Hatish neemt persoonlijk de tijd voor u.
+                <p className="text-[0.95rem] leading-relaxed text-taupe">
+                  Staat uw vraag er niet tussen? Neem contact op via het
+                  formulier of bel ons direct — u krijgt doorgaans binnen één
+                  werkdag antwoord.
                 </p>
-                <div className="border-l-2 border-sage/40 pl-5">
-                  <p className="font-display text-xl italic text-forest/80">
-                    &ldquo;Elke vraag is welkom, hoe klein ook.&rdquo;
-                  </p>
-                  <p className="mt-2 text-[0.75rem] uppercase tracking-[0.18em] text-forest/50">
-                    — Hatish
-                  </p>
-                </div>
                 <a
                   href="/contact"
-                  className="group inline-flex items-center gap-2 border border-forest bg-transparent px-5 py-2.5 text-[0.78rem] font-medium uppercase tracking-[0.18em] text-forest transition-all duration-300 hover:bg-forest hover:text-linen"
+                  className="inline-flex items-center gap-2 border border-ink/25 px-5 py-2.5 text-[0.74rem] font-medium uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-linen"
                 >
                   Contact opnemen
                 </a>
