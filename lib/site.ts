@@ -80,8 +80,8 @@ export const CONTACT = {
   mobile: "06 21 965 236",
   mobileHref: "tel:+31621965236",
   email: "info@stoftotleven.nl",
-  instagram: "@stoftotleven.nl",
-  instagramHref: "https://instagram.com/stoftotleven.nl",
+  instagram: "@stoftotleven",
+  instagramHref: "https://www.instagram.com/stoftotleven/",
   mapsEmbed:
     "https://www.google.com/maps?q=Kleiweg+124A,+3051+GX+Rotterdam&output=embed",
 } as const;

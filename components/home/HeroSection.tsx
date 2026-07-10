@@ -61,7 +61,7 @@ export default function HeroSection() {
 
           <h1
             translate="no"
-            className="notranslate mt-6 font-display text-[clamp(3rem,12vw,11.5rem)] font-light leading-[0.9] tracking-[-0.02em] text-forest"
+            className="notranslate mt-6 font-display text-[clamp(3rem,7.5vw,7.5rem)] font-light leading-[0.9] tracking-[-0.02em] text-forest"
           >
             {WORDS.map((w, i) => (
               <span key={w} className="block overflow-hidden">

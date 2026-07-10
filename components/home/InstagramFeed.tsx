@@ -4,15 +4,16 @@ import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import Image from "next/image";
 import ScrollReveal, { Stagger, StaggerItem } from "@/components/ui/ScrollReveal";
+import { CONTACT } from "@/lib/site";
 
-// Vervang de src-waarden met echte Instagram foto-URLs of lokale afbeeldingen in /public/instagram/
+// Foto's van instagram.com/stoftotleven — lokaal in /public/instagram/
 const POSTS = [
-  { id: 1, src: "/instagram/post-1.jpg", alt: "Gordijnen op maat" },
-  { id: 2, src: "/instagram/post-2.jpg", alt: "Gestoffeerde fauteuil" },
-  { id: 3, src: "/instagram/post-3.jpg", alt: "Kussens op maat" },
-  { id: 4, src: "/instagram/post-4.jpg", alt: "Maritieme bekleding" },
-  { id: 5, src: "/instagram/post-5.jpg", alt: "Atelier Kleiweg" },
-  { id: 6, src: "/instagram/post-6.jpg", alt: "Raamdecoratie detail" },
+  { id: 1, src: "/instagram/post-1.jpg", alt: "Hatish in het atelier" },
+  { id: 2, src: "/instagram/post-2.jpg", alt: "Stoffen en maatwerk" },
+  { id: 3, src: "/instagram/post-3.jpg", alt: "Gordijnen op maat" },
+  { id: 4, src: "/instagram/post-4.jpg", alt: "Vakmanschap in detail" },
+  { id: 5, src: "/instagram/post-5.jpg", alt: "Atelier aan de Kleiweg" },
+  { id: 6, src: "/instagram/post-6.jpg", alt: "Raamdecoratie project" },
 ];
 
 // Fallback placeholder colors when images are not yet uploaded
@@ -58,13 +59,13 @@ export default function InstagramFeed() {
             </div>
 
             <a
-              href="https://instagram.com/stoftotleven.nl"
+              href={CONTACT.instagramHref}
               target="_blank"
               rel="noreferrer"
               className="group flex shrink-0 items-center gap-2.5 border border-forest bg-forest px-5 py-2.5 text-[0.78rem] font-medium uppercase tracking-[0.18em] text-linen transition-all duration-300 hover:bg-transparent hover:text-forest"
             >
               <Instagram className="h-4 w-4" />
-              @stoftotleven.nl
+              @stoftotleven
             </a>
           </div>
         </ScrollReveal>
@@ -79,7 +80,7 @@ export default function InstagramFeed() {
           {POSTS.map((post, i) => (
             <StaggerItem key={post.id}>
               <motion.a
-                href="https://instagram.com/stoftotleven.nl"
+                href={CONTACT.instagramHref}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`Instagram: ${post.alt}`}
@@ -124,7 +125,7 @@ export default function InstagramFeed() {
         <ScrollReveal direction="up">
           <div className="mt-8 text-center">
             <a
-              href="https://instagram.com/stoftotleven.nl"
+              href={CONTACT.instagramHref}
               target="_blank"
               rel="noreferrer"
               className="link-underline text-[0.78rem] uppercase tracking-[0.22em] text-forest/70 transition-colors hover:text-forest"

@@ -11,10 +11,10 @@ type LogoProps = {
 
 /**
  * Brand mark for "Stof tot Leven — by Hatish".
- * Uses the official logo.jpg so the wordmark stays a graphic and is
- * protected from automatic translators (Google Translate, browsers).
- * The `translate="no"` and `notranslate` class lock the brand name
- * even when accessibility text is read by translation engines.
+ * Uses logo-mark.jpg (the square monogram cropped from the official
+ * logo) so it fills the box exactly, with the wordmark set in live
+ * text beside it. `translate="no"` + `notranslate` lock the brand
+ * name against automatic translators (Google Translate, browsers).
  */
 export default function Logo({
   className = "",
@@ -34,14 +34,14 @@ export default function Logo({
     <span
       translate="no"
       lang="nl"
-      className={`notranslate group inline-flex items-center gap-3 ${className}`}
+      className={`notranslate group inline-flex shrink-0 items-center gap-3 ${className}`}
       aria-label="Stof tot Leven by Hatish — Hillegersberg"
     >
       <span
         className={`relative ${box} shrink-0 overflow-hidden rounded-none ${tint}`}
       >
         <Image
-          src="/logo.jpg"
+          src="/logo-mark.jpg"
           alt=""
           width={dim * 2}
           height={dim * 2}
@@ -51,14 +51,14 @@ export default function Logo({
       </span>
       <span className="flex flex-col leading-none" translate="no">
         <span
-          className={`whitespace-nowrap font-display text-[1.1rem] tracking-tight sm:text-[1.22rem] ${
+          className={`whitespace-nowrap font-display text-[1.05rem] tracking-tight sm:text-[1.22rem] ${
             tone === "light" ? "text-linen" : "text-forest"
           }`}
         >
           Stof tot Leven
         </span>
         <span
-          className={`mt-1 whitespace-nowrap text-[0.52rem] uppercase tracking-[0.28em] ${
+          className={`mt-1 hidden whitespace-nowrap text-[0.52rem] uppercase tracking-[0.28em] min-[400px]:block ${
             tone === "light" ? "text-linen/60" : "text-forest/55"
           }`}
         >
@@ -73,7 +73,7 @@ export default function Logo({
     <Link
       href="/"
       aria-label="Stof tot Leven — naar de homepage"
-      className="-m-1 rounded-none p-1 transition-opacity hover:opacity-90"
+      className="-m-1 shrink-0 rounded-none p-1 transition-opacity hover:opacity-90"
     >
       {inner}
     </Link>

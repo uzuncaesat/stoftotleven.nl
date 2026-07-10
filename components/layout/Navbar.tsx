@@ -46,7 +46,7 @@ export default function Navbar() {
         <nav className="mx-auto flex w-full max-w-[88rem] items-center justify-between gap-4 px-5 sm:px-7 lg:px-10 xl:px-12">
           <Logo size="sm" />
 
-          <ul className="hidden items-center gap-0.5 lg:flex">
+          <ul className="hidden items-center gap-0.5 xl:flex">
             {NAV_LINKS.map((link) => {
               const active = isActive(link.href);
               return (
@@ -78,7 +78,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="group relative hidden items-center gap-2 overflow-hidden whitespace-nowrap rounded-none bg-forest px-5 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.16em] text-linen transition-colors duration-500 ease-out-expo hover:text-forest xl:inline-flex"
+              className="group relative hidden items-center gap-2 overflow-hidden whitespace-nowrap rounded-none bg-forest px-5 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.16em] text-linen transition-colors duration-500 ease-out-expo hover:text-forest min-[1500px]:inline-flex"
             >
               <span
                 aria-hidden
@@ -92,7 +92,7 @@ export default function Navbar() {
             <button
               onClick={() => setOpen(true)}
               aria-label="Menu openen"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-none border border-forest/25 text-forest transition-colors duration-300 hover:border-forest hover:bg-forest hover:text-linen lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-none border border-forest/25 text-forest transition-colors duration-300 hover:border-forest hover:bg-forest hover:text-linen xl:hidden"
             >
               <Menu className="h-5 w-5" />
             </button>
@@ -107,7 +107,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[70] lg:hidden"
+            className="fixed inset-0 z-[70] xl:hidden"
           >
             <motion.div
               initial={{ clipPath: "circle(0% at calc(100% - 40px) 40px)" }}
