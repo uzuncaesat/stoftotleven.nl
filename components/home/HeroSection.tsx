@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -70,27 +69,30 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Hero photography */}
+        {/* Hero video */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1, ease: EASE }}
           className="relative hidden aspect-[4/5] max-h-[72vh] w-full overflow-hidden bg-linen-deep lg:block"
         >
-          <Image
-            src="/photos/raamdecoratie/7.jpg"
-            alt="Gordijnen op maat, gemaakt en geplaatst door Stof tot Leven"
-            fill
-            priority
-            sizes="(max-width: 1024px) 0px, 45vw"
-            className="object-cover"
+          <video
+            src="/videos/home-hero.mp4"
+            poster="/photos/raamdecoratie/7.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Sfeerbeeld uit het atelier van Stof tot Leven"
+            className="absolute inset-0 h-full w-full object-cover"
           />
           <div
             aria-hidden
             className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/45 to-transparent"
           />
           <div className="absolute inset-x-0 bottom-0 flex items-center justify-between px-6 py-4 text-[0.62rem] uppercase tracking-[0.22em] text-white/85">
-            <span>Maatwerk — gordijnen</span>
+            <span>Maatwerk — atelier</span>
             <span>Rotterdam</span>
           </div>
         </motion.div>
