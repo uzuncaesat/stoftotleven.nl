@@ -45,31 +45,29 @@ export default function ProjectenSection() {
         </ScrollReveal>
       </div>
 
-      {/* Full-bleed feature image */}
-      <ScrollReveal direction="up">
-        <div className="relative mt-14 h-[52vh] w-full overflow-hidden sm:h-[68vh]">
-          <Image
-            src="/photos/raamdecoratie/6.jpg"
-            alt="Gordijnen op maat met uitzicht op het water — project in Rotterdam"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/40 to-transparent"
-          />
-          <div className="absolute inset-x-0 bottom-0">
-            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5 text-[0.66rem] uppercase tracking-[0.22em] text-white/85 sm:px-8 lg:px-12">
+      {/* Contained feature image — cinematic, not full-screen */}
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        <ScrollReveal direction="up">
+          <div className="group relative mt-12 aspect-[16/9] w-full overflow-hidden bg-linen-deep">
+            <Image
+              src="/photos/raamdecoratie/6.jpg"
+              alt="Gordijnen op maat met uitzicht op het water — project in Rotterdam"
+              fill
+              sizes="(max-width: 1280px) 100vw, 1152px"
+              className="object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/45 to-transparent"
+            />
+            <div className="absolute inset-x-0 bottom-0 flex items-center justify-between px-5 py-4 text-[0.66rem] uppercase tracking-[0.22em] text-white/85 sm:px-7">
               <span>Wandvullende gordijnen — woonhuis aan het water</span>
               <span className="hidden sm:block">Rotterdam</span>
             </div>
           </div>
-        </div>
-      </ScrollReveal>
+        </ScrollReveal>
 
-      {/* 3-up grid */}
-      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        {/* 3-up grid */}
         <Stagger
           className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3"
           staggerChildren={0.08}
@@ -77,7 +75,7 @@ export default function ProjectenSection() {
           {GRID.map((p) => (
             <StaggerItem key={p.src}>
               <figure className="group">
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-linen-deep">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-linen-deep">
                   <Image
                     src={p.src}
                     alt={p.label}
@@ -86,9 +84,9 @@ export default function ProjectenSection() {
                     className="object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04]"
                   />
                 </div>
-                <figcaption className="mt-4 flex items-baseline justify-between gap-4">
-                  <span className="text-[0.92rem] font-medium text-ink">{p.label}</span>
-                  <span className="shrink-0 text-[0.66rem] uppercase tracking-[0.18em] text-taupe">
+                <figcaption className="mt-3.5 flex items-baseline justify-between gap-4">
+                  <span className="text-[0.9rem] font-medium text-ink">{p.label}</span>
+                  <span className="shrink-0 text-[0.64rem] uppercase tracking-[0.18em] text-taupe">
                     {p.meta}
                   </span>
                 </figcaption>
